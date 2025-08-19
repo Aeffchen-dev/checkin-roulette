@@ -280,7 +280,7 @@ export function QuizApp() {
               <Switch 
                 checked={isMixedMode}
                 onCheckedChange={setIsMixedMode}
-                className="data-[state=checked]:bg-white data-[state=unchecked]:bg-gray-600"
+                className="data-[state=checked]:bg-white data-[state=unchecked]:bg-white"
               />
               <span className="text-white font-normal text-xs">mixed</span>
             </div>
