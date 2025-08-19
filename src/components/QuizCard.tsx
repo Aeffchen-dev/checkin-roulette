@@ -94,20 +94,17 @@ export function QuizCard({ question, onSwipeLeft, onSwipeRight, animationClass =
   const getCategoryColors = (categoryIndex: number) => {
     const colorIndex = (categoryIndex % 6) + 1;
     
-    // Map to determine text color based on background
-    const textColorMap: { [key: number]: string } = {
-      1: 'text-white', // purple - white text
-      2: 'text-white', // blue - white text  
-      3: 'text-black', // pink - black text
-      4: 'text-black', // yellow - black text
-      5: 'text-white', // cyan - white text
-      6: 'text-black', // mint green - black text
+    // CSS custom properties for the colors
+    const colorVars = {
+      1: { bg: 'hsl(var(--quiz-category1-bg))', text: 'white' },
+      2: { bg: 'hsl(var(--quiz-category2-bg))', text: 'white' },
+      3: { bg: 'hsl(var(--quiz-category3-bg))', text: 'black' },
+      4: { bg: 'hsl(var(--quiz-category4-bg))', text: 'black' },
+      5: { bg: 'hsl(var(--quiz-category5-bg))', text: 'white' },
+      6: { bg: 'hsl(var(--quiz-category6-bg))', text: 'black' },
     };
     
-    return {
-      bg: `bg-quiz-category${colorIndex}-bg`,
-      text: textColorMap[colorIndex] || 'text-white'
-    };
+    return colorVars[colorIndex as keyof typeof colorVars] || colorVars[1];
   };
 
   const categoryColors = getCategoryColors(categoryIndex);
@@ -198,10 +195,20 @@ export function QuizCard({ question, onSwipeLeft, onSwipeRight, animationClass =
       />
 
       {/* Category Strip */}
-      <div className={`absolute left-0 top-0 h-full w-8 ${categoryColors.bg} flex items-center justify-center`}>
+      <div 
+        className="absolute left-0 top-0 h-full w-8 flex items-center justify-center"
+        style={{ backgroundColor: categoryColors.bg }}
+      >
         <div className="transform -rotate-90 whitespace-nowrap">
           {Array(20).fill(question.category).map((cat, index) => (
-            <span key={index} className={`${categoryColors.text} font-bold text-sm tracking-wide uppercase`} style={{ marginRight: index < 19 ? '8px' : '0' }}>
+            <span 
+              key={index} 
+              className="font-bold text-sm tracking-wide uppercase" 
+              style={{ 
+                color: categoryColors.text,
+                marginRight: index < 19 ? '8px' : '0' 
+              }}
+            >
               {cat}
             </span>
           ))}

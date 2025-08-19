@@ -26,10 +26,9 @@ export function CategorySelector({
     setTempSelection(selectedCategories);
   }, [selectedCategories]);
 
-  const getCategoryColors = (category: string, index: number) => {
-    // Cycle through the 6 provided colors
+  const getCategoryColors = (index: number) => {
     const colorIndex = (index % 6) + 1;
-    return `border-l-quiz-category${colorIndex}-bg`;
+    return `hsl(var(--quiz-category${colorIndex}-bg))`;
   };
 
   const handleCategoryToggle = (category: string) => {
@@ -77,13 +76,16 @@ export function CategorySelector({
             <div className="px-6 space-y-3 pb-6">
               {categories.map((category, index) => {
               const isSelected = tempSelection.includes(category);
-              const colorClasses = getCategoryColors(category, index);
+              const borderColor = getCategoryColors(index);
               
               return (
                 <div 
                   key={category}
-                  className={`flex items-center justify-between p-4 border-l-8 ${colorClasses} bg-[#161616] cursor-pointer`}
-                  style={{ borderRadius: '4px' }}
+                  className="flex items-center justify-between p-4 border-l-8 bg-[#161616] cursor-pointer"
+                  style={{ 
+                    borderRadius: '4px',
+                    borderLeftColor: borderColor
+                  }}
                   onClick={() => handleCategoryToggle(category)}
                 >
                   <span className="text-white font-bold text-sm uppercase tracking-wide">
