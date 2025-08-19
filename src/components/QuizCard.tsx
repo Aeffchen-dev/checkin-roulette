@@ -13,10 +13,9 @@ interface QuizCardProps {
   onSwipeRight: () => void;
   animationClass?: string;
   categoryIndex?: number;
-  isIntroSlide?: boolean;
 }
 
-export function QuizCard({ question, onSwipeLeft, onSwipeRight, animationClass = '', categoryIndex = 0, isIntroSlide = false }: QuizCardProps) {
+export function QuizCard({ question, onSwipeLeft, onSwipeRight, animationClass = '', categoryIndex = 0 }: QuizCardProps) {
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
   const [mouseStart, setMouseStart] = useState<number | null>(null);
@@ -195,48 +194,39 @@ export function QuizCard({ question, onSwipeLeft, onSwipeRight, animationClass =
         onClick={onSwipeLeft}
       />
 
-      {/* Category Strip - Hidden for intro slide */}
-      {!isIntroSlide && (
-        <div 
-          className="absolute left-0 top-0 h-full w-8 flex items-center justify-center"
-          style={{ backgroundColor: categoryColors.bg }}
-        >
-          <div className="transform -rotate-90 whitespace-nowrap">
-            {Array(20).fill(question.category).map((cat, index) => (
-              <span 
-                key={index} 
-                className="font-bold text-sm tracking-wide uppercase" 
-                style={{ 
-                  color: categoryColors.text,
-                  marginRight: index < 19 ? '8px' : '0' 
-                }}
-              >
-                {cat}
-              </span>
-            ))}
-          </div>
+      {/* Category Strip */}
+      <div 
+        className="absolute left-0 top-0 h-full w-8 flex items-center justify-center"
+        style={{ backgroundColor: categoryColors.bg }}
+      >
+        <div className="transform -rotate-90 whitespace-nowrap">
+          {Array(20).fill(question.category).map((cat, index) => (
+            <span 
+              key={index} 
+              className="font-bold text-sm tracking-wide uppercase" 
+              style={{ 
+                color: categoryColors.text,
+                marginRight: index < 19 ? '8px' : '0' 
+              }}
+            >
+              {cat}
+            </span>
+          ))}
         </div>
-      )}
+      </div>
 
       {/* Main Content */}
-      <div className={`${isIntroSlide ? 'ml-0' : 'ml-8 lg:ml-10'} h-full flex flex-col justify-center px-8 lg:pr-10 relative`}>
+      <div className="ml-8 lg:ml-10 h-full flex flex-col justify-center px-8 lg:pr-10">
 
-        <div ref={containerRef} className={`flex-1 flex ${isIntroSlide ? 'items-center justify-center text-center' : 'items-start justify-start text-left pt-16'} w-full`}>
+        <div ref={containerRef} className="flex-1 flex items-start justify-start text-left pt-16 w-full">
           <h1 
             ref={textRef}
-            className={`${isIntroSlide ? 'text-sm md:text-base lg:text-lg' : 'text-3xl md:text-4xl lg:text-4xl'} font-normal text-foreground leading-tight w-4/5 max-w-4/5`}
+            className="text-3xl md:text-4xl lg:text-4xl font-normal text-foreground leading-tight w-full max-w-full" 
             style={{ fontFamily: 'Arial, sans-serif' }}
           >
             {processedText.length > 0 ? processedText : question.question}
           </h1>
         </div>
-
-        {/* Navigation instruction for intro slide */}
-        {isIntroSlide && (
-          <div className="absolute bottom-8 left-0 right-0 text-center px-8">
-            <p className="text-xs text-foreground/60">Swipe um weiter zu navigieren</p>
-          </div>
-        )}
 
       </div>
 

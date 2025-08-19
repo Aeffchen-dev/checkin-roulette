@@ -13,7 +13,6 @@ interface Question {
 interface SlideItem {
   type: 'intro' | 'question';
   question?: Question;
-  isIntroSlide?: boolean;
 }
 
 // Smart shuffle algorithm to distribute categories more evenly
@@ -203,19 +202,24 @@ export function QuizApp() {
         // Add the last field
         values.push(current.trim());
         
-        // Skip header row if it exists
+        // Skip header row
         if (i === 0 && (values[0]?.toLowerCase().includes('categor') || values[1]?.toLowerCase().includes('question'))) {
           continue;
         }
         
-        if (values.length >= 2 && values[0] && values[1]) {
+        if (values.length >= 3 && values[0] && values[1] && values[2]) {
           const question: Question = {
             category: values[0],
             question: values[1],
-            depth: values[2] && values[2].toLowerCase().includes('light') ? 'light' : 'deep'
+            depth: values[2].toLowerCase().includes('light') ? 'light' : 'deep'
           };
           
-          questions.push(question);
+          // First row (after header) becomes intro slide content
+          if (i === 1) {
+            introContent = question;
+          } else {
+            questions.push(question);
+          }
         }
       }
       
@@ -226,9 +230,8 @@ export function QuizApp() {
         setAllQuestions(shuffledQuestions);
         setIntroSlide(introContent);
         
-        // Extract unique categories and assign colors, exclude "01 Intro"
-        const categories = Array.from(new Set(questions.map(q => q.category)))
-          .filter(cat => cat !== '01 Intro');
+        // Extract unique categories and assign colors
+        const categories = Array.from(new Set(questions.map(q => q.category)));
         const colorMap: { [category: string]: number } = {};
         categories.forEach((category, index) => {
           colorMap[category] = index;
@@ -284,12 +287,9 @@ export function QuizApp() {
     const isFiltered = selectedCategories.length < availableCategories.length;
     const isLightMode = !isMixedMode;
     
-    // Get intro questions from "01 Intro" category
-    const introQuestions = allQuestions.filter(q => q.category === '01 Intro');
-    
-    // Filter by categories (excluding "01 Intro")
+    // Filter by categories
     let filteredQuestions = allQuestions.filter(q => 
-      selectedCategories.includes(q.category) && q.category !== '01 Intro'
+      selectedCategories.includes(q.category)
     );
     
     // Filter by depth if in light mode
@@ -301,13 +301,9 @@ export function QuizApp() {
     
     const slides: SlideItem[] = [];
     
-    // Add intro slide from backend if available and no filters active and in mixed mode
-    if (!isFiltered && isMixedMode && introQuestions.length > 0) {
-      slides.push({ 
-        type: 'question', 
-        question: introQuestions[0], 
-        isIntroSlide: true 
-      });
+    // Add intro slide if not filtered and not in light mode and intro content exists
+    if (!isFiltered && !isLightMode && introSlide) {
+      slides.push({ type: 'intro', question: introSlide });
     }
     
     // Add question slides
@@ -317,7 +313,7 @@ export function QuizApp() {
     
     setSlides(slides);
     setCurrentIndex(0); // Reset to first slide when filtering/mode changes
-  }, [selectedCategories, allQuestions, availableCategories.length, isMixedMode]);
+  }, [selectedCategories, allQuestions, availableCategories.length, isMixedMode, introSlide]);
 
   const handleCategoriesChange = (categories: string[]) => {
     setSelectedCategories(categories);
@@ -349,14 +345,25 @@ export function QuizApp() {
           {loading ? (
             <div className="flex items-center justify-center h-full text-white text-xl">Lade Fragen...</div>
           ) : slides.length > 0 ? (
-            <QuizCard
-              question={slides[currentIndex].question!}
-              onSwipeLeft={nextQuestion}
-              onSwipeRight={prevQuestion}
-              animationClass={animationClass}
-              categoryIndex={categoryColorMap[slides[currentIndex].question!.category] || 0}
-              isIntroSlide={slides[currentIndex].isIntroSlide}
-            />
+            slides[currentIndex].type === 'intro' ? (
+              <div className="flex items-center justify-center h-full">
+                <QuizCard
+                  question={slides[currentIndex].question!}
+                  onSwipeLeft={nextQuestion}
+                  onSwipeRight={prevQuestion}
+                  animationClass={animationClass}
+                  categoryIndex={categoryColorMap[slides[currentIndex].question!.category] || 0}
+                />
+              </div>
+            ) : (
+              <QuizCard
+                question={slides[currentIndex].question!}
+                onSwipeLeft={nextQuestion}
+                onSwipeRight={prevQuestion}
+                animationClass={animationClass}
+                categoryIndex={categoryColorMap[slides[currentIndex].question!.category] || 0}
+              />
+            )
           ) : (
             <div className="text-white text-xl">Keine Fragen verfügbar</div>
           )}
