@@ -224,7 +224,7 @@ export function QuizCard({ question, onSwipeLeft, onSwipeRight, animationClass =
         <div ref={containerRef} className={`flex-1 flex ${isIntroSlide ? 'items-center justify-center text-center' : 'items-start justify-start text-left pt-16'} w-full`}>
           <h1 
             ref={textRef}
-            className={`${isIntroSlide ? 'text-lg md:text-xl lg:text-2xl' : 'text-3xl md:text-4xl lg:text-4xl'} font-normal text-foreground leading-tight w-full max-w-full`}
+            className={`${isIntroSlide ? 'text-sm md:text-base lg:text-lg' : 'text-3xl md:text-4xl lg:text-4xl'} font-normal text-foreground leading-tight w-full max-w-full`}
             style={{ fontFamily: 'Arial, sans-serif' }}
           >
             {processedText.length > 0 ? processedText : question.question}
