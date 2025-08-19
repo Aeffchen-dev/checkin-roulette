@@ -52,12 +52,12 @@ All colors MUST be HSL.
     --quiz-category1-text: 0 0% 98%;         /* White text */
     --quiz-category2-bg: 241 100% 50%;       /* #0500FF - blue (From the inside) */
     --quiz-category2-text: 0 0% 98%;         /* White text */
-    --quiz-category3-bg: 318 86% 75%;        /* #FF92EF - pink */
-    --quiz-category3-text: 0 0% 0%;          /* Black text */
-    --quiz-category4-bg: 60 100% 71%;        /* #FFFE6F - yellow */
+    --quiz-category3-bg: 196 100% 50%;       /* #00D4FF - cyan (play) */
+    --quiz-category3-text: 0 0% 98%;         /* White text */
+    --quiz-category4-bg: 318 86% 75%;        /* #FF92EF - pink (Story of the day) */
     --quiz-category4-text: 0 0% 0%;          /* Black text */
-    --quiz-category5-bg: 185 72% 53%;        /* #28C8E4 - cyan */
-    --quiz-category5-text: 0 0% 98%;         /* White text */
+    --quiz-category5-bg: 60 100% 71%;        /* #FFFE6F - yellow (Visions) */
+    --quiz-category5-text: 0 0% 0%;          /* Black text */
     --quiz-category6-bg: 166 80% 69%;        /* #72F1C0 - mint green */
     --quiz-category6-text: 0 0% 0%;          /* Black text */
     
