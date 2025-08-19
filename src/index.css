@@ -47,31 +47,45 @@ All colors MUST be HSL.
     --quiz-background: 0 0% 7%;
     --quiz-surface: 0 0% 12%;
     
-    /* Category-specific colors */
-    --quiz-werte-bg: 78 37% 44%;          /* Werte: #6A9B45 */
-    --quiz-werte-text: 0 0% 98%;          /* White text on green */
-    --quiz-bedürfnisse-bg: 241 100% 50%;  /* Bedürfnisse: #0500FF */
-    --quiz-bedürfnisse-text: 0 0% 98%;    /* White text on blue */
-    --quiz-kommunikation-bg: 78 69% 58%;  /* Kommunikation: #9EE344 */
-    --quiz-kommunikation-text: 0 0% 0%;   /* Black text on light green */
-    --quiz-motivation-bg: 266 100% 51%;   /* Motivation: #7004FF */
-    --quiz-motivation-text: 0 0% 98%;     /* White text on purple */
-    --quiz-grenzen-bg: 0 100% 50%;        /* Grenzen: #FF0000 */
-    --quiz-grenzen-text: 0 0% 98%;        /* White text on red */
-    --quiz-vision-bg: 185 72% 53%;        /* Vision: #28C8E4 */
-    --quiz-vision-text: 0 0% 98%;         /* White text on cyan */
-    --quiz-no-go-bg: 0 100% 50%;          /* No Go: #FF0000 */
-    --quiz-no-go-text: 0 0% 98%;          /* White text on red */
-    --quiz-risiko-bg: 60 100% 71%;        /* Risiko: #FFFE6F */
-    --quiz-risiko-text: 0 0% 0%;          /* Black text on yellow */
-    --quiz-regeln-bg: 318 86% 75%;        /* Regeln: #FF92EF */
-    --quiz-regeln-text: 0 0% 0%;          /* Black text on pink */
-    --quiz-info-bg: 0 0% 100%;            /* Info: #FFFFFF */
-    --quiz-info-text: 0 0% 0%;            /* Black text on white */
-    --quiz-reflexion-bg: 166 80% 69%;     /* Reflexion: #72F1C0 */
-    --quiz-reflexion-text: 0 0% 0%;       /* Black text on cyan */
-    --quiz-bindung-bg: 270 75% 69%;       /* Bindung: #A572F1 */
-    --quiz-bindung-text: 0 0% 0%;         /* Black text on purple */
+    /* Category-specific colors using the new provided colors */
+    --quiz-category1-bg: 266 100% 51%;       /* #7004FF - purple */
+    --quiz-category1-text: 0 0% 98%;         /* White text */
+    --quiz-category2-bg: 241 100% 50%;       /* #0500FF - blue */
+    --quiz-category2-text: 0 0% 98%;         /* White text */
+    --quiz-category3-bg: 318 86% 75%;        /* #FF92EF - pink */
+    --quiz-category3-text: 0 0% 0%;          /* Black text */
+    --quiz-category4-bg: 60 100% 71%;        /* #FFFE6F - yellow */
+    --quiz-category4-text: 0 0% 0%;          /* Black text */
+    --quiz-category5-bg: 185 72% 53%;        /* #28C8E4 - cyan */
+    --quiz-category5-text: 0 0% 98%;         /* White text */
+    --quiz-category6-bg: 166 80% 69%;        /* #72F1C0 - mint green */
+    --quiz-category6-text: 0 0% 0%;          /* Black text */
+    
+    /* Legacy category colors - keeping for backward compatibility */
+    --quiz-werte-bg: 266 100% 51%;           /* #7004FF */
+    --quiz-werte-text: 0 0% 98%;
+    --quiz-bedürfnisse-bg: 241 100% 50%;     /* #0500FF */
+    --quiz-bedürfnisse-text: 0 0% 98%;
+    --quiz-kommunikation-bg: 318 86% 75%;    /* #FF92EF */
+    --quiz-kommunikation-text: 0 0% 0%;
+    --quiz-motivation-bg: 60 100% 71%;       /* #FFFE6F */
+    --quiz-motivation-text: 0 0% 0%;
+    --quiz-grenzen-bg: 185 72% 53%;          /* #28C8E4 */
+    --quiz-grenzen-text: 0 0% 98%;
+    --quiz-vision-bg: 166 80% 69%;           /* #72F1C0 */
+    --quiz-vision-text: 0 0% 0%;
+    --quiz-no-go-bg: 266 100% 51%;           /* #7004FF */
+    --quiz-no-go-text: 0 0% 98%;
+    --quiz-risiko-bg: 241 100% 50%;          /* #0500FF */
+    --quiz-risiko-text: 0 0% 98%;
+    --quiz-regeln-bg: 318 86% 75%;           /* #FF92EF */
+    --quiz-regeln-text: 0 0% 0%;
+    --quiz-info-bg: 60 100% 71%;             /* #FFFE6F */
+    --quiz-info-text: 0 0% 0%;
+    --quiz-reflexion-bg: 185 72% 53%;        /* #28C8E4 */
+    --quiz-reflexion-text: 0 0% 98%;
+    --quiz-bindung-bg: 166 80% 69%;          /* #72F1C0 */
+    --quiz-bindung-text: 0 0% 0%;
     
     /* Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(280 100% 70%), hsl(290 100% 80%));

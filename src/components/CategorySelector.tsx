@@ -26,35 +26,10 @@ export function CategorySelector({
     setTempSelection(selectedCategories);
   }, [selectedCategories]);
 
-  const getCategoryColors = (category: string) => {
-    switch (category.toLowerCase()) {
-      case 'werte':
-        return 'border-l-quiz-werte-bg';
-      case 'bedürfnisse':
-        return 'border-l-quiz-bedürfnisse-bg';
-      case 'kommunikation':
-        return 'border-l-quiz-kommunikation-bg';
-      case 'motivation':
-        return 'border-l-quiz-motivation-bg';
-      case 'grenzen':
-        return 'border-l-quiz-grenzen-bg';
-      case 'vision':
-        return 'border-l-quiz-vision-bg';
-      case 'no go':
-        return 'border-l-quiz-no-go-bg';
-      case 'risiko':
-        return 'border-l-quiz-risiko-bg';
-      case 'regeln':
-        return 'border-l-quiz-regeln-bg';
-      case 'info':
-        return 'border-l-quiz-info-bg';
-      case 'reflexion':
-        return 'border-l-quiz-reflexion-bg';
-      case 'bindung':
-        return 'border-l-quiz-bindung-bg';
-      default:
-        return 'border-l-quiz-category-bg';
-    }
+  const getCategoryColors = (category: string, index: number) => {
+    // Cycle through the 6 provided colors
+    const colorIndex = (index % 6) + 1;
+    return `border-l-quiz-category${colorIndex}-bg`;
   };
 
   const handleCategoryToggle = (category: string) => {
@@ -100,9 +75,9 @@ export function CategorySelector({
           {/* Categories List */}
           <ScrollArea className="flex-1 pt-20 min-h-0">
             <div className="px-6 space-y-3 pb-6">
-              {categories.map((category) => {
+              {categories.map((category, index) => {
               const isSelected = tempSelection.includes(category);
-              const colorClasses = getCategoryColors(category);
+              const colorClasses = getCategoryColors(category, index);
               
               return (
                 <div 
