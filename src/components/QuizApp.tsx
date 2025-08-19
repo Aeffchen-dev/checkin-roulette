@@ -2,15 +2,16 @@ import { useState, useEffect } from 'react';
 import { QuizCard } from './QuizCard';
 import { CategorySelector } from './CategorySelector';
 import { IntroSlide } from './IntroSlide';
+import { Switch } from './ui/switch';
 
 interface Question {
   question: string;
   category: string;
+  depth: 'light' | 'deep';
 }
 
 interface SlideItem {
   type: 'intro' | 'question';
-  introType?: 'welcome' | 'description';
   question?: Question;
 }
 
@@ -19,14 +20,77 @@ export function QuizApp() {
   const [animationClass, setAnimationClass] = useState('');
   const [questions, setQuestions] = useState<Question[]>([]);
   const [allQuestions, setAllQuestions] = useState<Question[]>([]);
+  const [introSlide, setIntroSlide] = useState<Question | null>(null);
   const [slides, setSlides] = useState<SlideItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [categorySelectorOpen, setCategorySelectorOpen] = useState(false);
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [availableCategories, setAvailableCategories] = useState<string[]>([]);
+  const [isMixedMode, setIsMixedMode] = useState(true);
 
   useEffect(() => {
     fetchQuestions();
+  }, []);
+
+  // Add touch/mouse handlers for desktop swipe
+  useEffect(() => {
+    let startX = 0;
+    let startY = 0;
+    let isDragging = false;
+
+    const handleStart = (clientX: number, clientY: number) => {
+      startX = clientX;
+      startY = clientY;
+      isDragging = true;
+    };
+
+    const handleEnd = (clientX: number, clientY: number) => {
+      if (!isDragging) return;
+      
+      const deltaX = clientX - startX;
+      const deltaY = clientY - startY;
+      
+      // Only trigger if horizontal movement is greater than vertical
+      if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
+        if (deltaX > 0) {
+          prevQuestion();
+        } else {
+          nextQuestion();
+        }
+      }
+      
+      isDragging = false;
+    };
+
+    const handleMouseDown = (e: MouseEvent) => {
+      handleStart(e.clientX, e.clientY);
+    };
+
+    const handleMouseUp = (e: MouseEvent) => {
+      handleEnd(e.clientX, e.clientY);
+    };
+
+    const handleTouchStart = (e: TouchEvent) => {
+      const touch = e.touches[0];
+      handleStart(touch.clientX, touch.clientY);
+    };
+
+    const handleTouchEnd = (e: TouchEvent) => {
+      const touch = e.changedTouches[0];
+      handleEnd(touch.clientX, touch.clientY);
+    };
+
+    document.addEventListener('mousedown', handleMouseDown);
+    document.addEventListener('mouseup', handleMouseUp);
+    document.addEventListener('touchstart', handleTouchStart);
+    document.addEventListener('touchend', handleTouchEnd);
+
+    return () => {
+      document.removeEventListener('mousedown', handleMouseDown);
+      document.removeEventListener('mouseup', handleMouseUp);
+      document.removeEventListener('touchstart', handleTouchStart);
+      document.removeEventListener('touchend', handleTouchEnd);
+    };
   }, []);
 
   const fetchQuestions = async () => {
@@ -34,8 +98,8 @@ export function QuizApp() {
       let csvText = '';
       
       try {
-        // Try Google Sheets first
-        const spreadsheetId = '1ocX6XRk_Y_HcUCg7hcjb1nHuoKqyBUc2KmWX9JNTXrU';
+        // Use the new Google Sheets URL
+        const spreadsheetId = '1ROCLsLu2rSJKRwkX5DkZHLHKzy_bksmHbgGqORG2DOk';
         const csvUrl = `https://docs.google.com/spreadsheets/d/${spreadsheetId}/export?format=csv&gid=0`;
         
         const response = await fetch(csvUrl);
@@ -54,9 +118,10 @@ export function QuizApp() {
         csvText = await localResponse.text();
       }
       
-      // Parse CSV data (skip header row if exists)
+      // Parse CSV data
       const lines = csvText.split('\n').filter(line => line.trim());
       const questions: Question[] = [];
+      let introContent: Question | null = null;
       
       for (let i = 0; i < lines.length; i++) {
         const line = lines[i].trim();
@@ -91,104 +156,33 @@ export function QuizApp() {
         // Add the last field
         values.push(current.trim());
         
-        if (values.length >= 2 && values[0] && values[1]) {
-          // Check if first row is header
-          if (i === 0 && values[0].toLowerCase() === 'question') {
-            // Skip header row with structure: question,category
-            continue;
-          } else if (i === 0 && values[0].toLowerCase() === 'category') {
-            // Skip header row with structure: category,question
-            continue;
-          }
+        // Skip header row
+        if (i === 0 && (values[0]?.toLowerCase().includes('categor') || values[1]?.toLowerCase().includes('question'))) {
+          continue;
+        }
+        
+        if (values.length >= 3 && values[0] && values[1] && values[2]) {
+          const question: Question = {
+            category: values[0],
+            question: values[1],
+            depth: values[2].toLowerCase().includes('light') ? 'light' : 'deep'
+          };
           
-          // Determine structure based on first non-header row
-          if (values[0].toLowerCase() === 'question' || values[0].toLowerCase() === 'category') {
-            continue; // Skip if it's still a header
-          }
-          
-          // Check if this looks like a question (longer text) vs category (shorter text)
-          const isFirstFieldQuestion = values[0].length > values[1].length || values[0].includes('?');
-          
-          if (isFirstFieldQuestion) {
-            // Structure: question,category
-            questions.push({
-              question: values[0],
-              category: values[1]
-            });
+          // First row (after header) becomes intro slide content
+          if (i === 1) {
+            introContent = question;
           } else {
-            // Structure: category,question
-            questions.push({
-              category: values[0],
-              question: values[1]
-            });
+            questions.push(question);
           }
         }
       }
       
       if (questions.length > 0) {
-        // Separate different categories
-        const reflexionQuestions = questions.filter(q => q.category === 'Reflexion');
-        const bindungQuestions = questions.filter(q => q.category === 'Bindung');
-        const otherQuestions = questions.filter(q => q.category !== 'Reflexion' && q.category !== 'Bindung');
+        // Shuffle questions for random order on each reload
+        const shuffledQuestions = [...questions].sort(() => Math.random() - 0.5);
         
-        // Shuffle all groups
-        const shuffledOthers = [...otherQuestions].sort(() => Math.random() - 0.5);
-        const shuffledReflexion = [...reflexionQuestions].sort(() => Math.random() - 0.5);
-        const shuffledBindung = [...bindungQuestions].sort(() => Math.random() - 0.5);
-        
-        // Calculate positions for distribution
-        const totalQuestions = questions.length;
-        const lastThirdStart = Math.floor(totalQuestions * 2 / 3);
-        
-        // Create base array with others
-        const baseQuestions = [...shuffledOthers];
-        
-        // Distribute Bindung questions evenly
-        const distributedQuestions = [...baseQuestions];
-        const bindungInterval = Math.max(1, Math.floor(distributedQuestions.length / (shuffledBindung.length + 1)));
-        
-        shuffledBindung.forEach((bindungQ, index) => {
-          const insertPosition = Math.min(
-            distributedQuestions.length,
-            (index + 1) * bindungInterval + index
-          );
-          distributedQuestions.splice(insertPosition, 0, bindungQ);
-        });
-        
-        // Add reflexion questions in the last third
-        const finalQuestions = [
-          ...distributedQuestions.slice(0, lastThirdStart),
-          ...shuffledReflexion,
-          ...distributedQuestions.slice(lastThirdStart)
-        ];
-        
-        setAllQuestions(finalQuestions);
-        setQuestions(finalQuestions);
-        
-        // Create slides with intro slides at the beginning
-        const introSlides: SlideItem[] = [
-          { type: 'intro', introType: 'welcome' },
-          { type: 'intro', introType: 'description' }
-        ];
-        
-        // Find and move the specific question to 3rd position
-        const targetQuestion = "Was wünschst du dir von unserem heutigen Gespräch?";
-        const targetQuestionIndex = finalQuestions.findIndex(q => 
-          q.question.includes("Was wünschst du dir von unserem heutigen Gespräch")
-        );
-        
-        let reorderedQuestions = [...finalQuestions];
-        if (targetQuestionIndex !== -1) {
-          const [targetQ] = reorderedQuestions.splice(targetQuestionIndex, 1);
-          reorderedQuestions.unshift(targetQ); // Put it first in questions (3rd overall)
-        }
-        
-        const questionSlides: SlideItem[] = reorderedQuestions.map(q => ({
-          type: 'question',
-          question: q
-        }));
-        
-        setSlides([...introSlides, ...questionSlides]);
+        setAllQuestions(shuffledQuestions);
+        setIntroSlide(introContent);
         
         // Extract unique categories
         const categories = Array.from(new Set(questions.map(q => q.category)));
@@ -237,71 +231,38 @@ export function QuizApp() {
     return () => window.removeEventListener('keydown', handleKeyPress);
   }, [currentIndex]);
 
-  // Filter questions based on selected categories
+  // Filter and order slides based on categories and mode
   useEffect(() => {
-    if (selectedCategories.length === 0) {
-      setQuestions([]);
-      setSlides([
-        { type: 'intro', introType: 'welcome' },
-        { type: 'intro', introType: 'description' }
-      ]);
-    } else {
-      const filteredQuestions = allQuestions.filter(q => 
-        selectedCategories.includes(q.category)
-      );
-      setQuestions(filteredQuestions);
-      
-      // Check if we're filtering (not showing all categories)
-      const isFiltered = selectedCategories.length < availableCategories.length;
-      
-      if (isFiltered) {
-        // Skip intro slides when filtering
-        // Find and move the specific question to first position
-        const targetQuestionIndex = filteredQuestions.findIndex(q => 
-          q.question.includes("Was wünschst du dir von unserem heutigen Gespräch")
-        );
-        
-        let reorderedQuestions = [...filteredQuestions];
-        if (targetQuestionIndex !== -1) {
-          const [targetQ] = reorderedQuestions.splice(targetQuestionIndex, 1);
-          reorderedQuestions.unshift(targetQ); // Put it first
-        }
-        
-        const questionSlides: SlideItem[] = reorderedQuestions.map(q => ({
-          type: 'question',
-          question: q
-        }));
-        
-        setSlides(questionSlides);
-      } else {
-        // Show intro slides when all categories are selected
-        const introSlides: SlideItem[] = [
-          { type: 'intro', introType: 'welcome' },
-          { type: 'intro', introType: 'description' }
-        ];
-        
-        // Find and move the specific question to 3rd position for all questions
-        const targetQuestionIndex = filteredQuestions.findIndex(q => 
-          q.question.includes("Was wünschst du dir von unserem heutigen Gespräch")
-        );
-        
-        let reorderedQuestions = [...filteredQuestions];
-        if (targetQuestionIndex !== -1) {
-          const [targetQ] = reorderedQuestions.splice(targetQuestionIndex, 1);
-          reorderedQuestions.unshift(targetQ); // Put it first in questions (3rd overall)
-        }
-        
-        const questionSlides: SlideItem[] = reorderedQuestions.map(q => ({
-          type: 'question',
-          question: q
-        }));
-        
-        setSlides([...introSlides, ...questionSlides]);
-      }
-      
-      setCurrentIndex(0); // Reset to first slide when filtering
+    const isFiltered = selectedCategories.length < availableCategories.length;
+    const isLightMode = !isMixedMode;
+    
+    // Filter by categories
+    let filteredQuestions = allQuestions.filter(q => 
+      selectedCategories.includes(q.category)
+    );
+    
+    // Filter by depth if in light mode
+    if (isLightMode) {
+      filteredQuestions = filteredQuestions.filter(q => q.depth === 'light');
     }
-  }, [selectedCategories, allQuestions, availableCategories.length]);
+    
+    setQuestions(filteredQuestions);
+    
+    const slides: SlideItem[] = [];
+    
+    // Add intro slide if not filtered and not in light mode and intro content exists
+    if (!isFiltered && !isLightMode && introSlide) {
+      slides.push({ type: 'intro', question: introSlide });
+    }
+    
+    // Add question slides
+    filteredQuestions.forEach(q => {
+      slides.push({ type: 'question', question: q });
+    });
+    
+    setSlides(slides);
+    setCurrentIndex(0); // Reset to first slide when filtering/mode changes
+  }, [selectedCategories, allQuestions, availableCategories.length, isMixedMode, introSlide]);
 
   const handleCategoriesChange = (categories: string[]) => {
     setSelectedCategories(categories);
@@ -312,13 +273,24 @@ export function QuizApp() {
       {/* App Header */}
       <div className="bg-black mt-4 flex items-center" style={{ paddingTop: 'env(safe-area-inset-top, 0)' }}>
         <div className="flex justify-between items-baseline px-6 w-full">
-          <h1 className="text-white font-kokoro text-2xl" style={{ fontFamily: 'Kokoro, serif', fontWeight: 'bold', fontStyle: 'italic' }}>non mono</h1>
-          <button 
-            onClick={() => setCategorySelectorOpen(true)}
-            className="text-white font-normal text-xs flex items-center"
-          >
-            Kategorien wählen
-          </button>
+          <h1 className="text-white font-kokoro text-2xl" style={{ fontFamily: 'Kokoro, serif', fontWeight: 'bold', fontStyle: 'italic' }}>Check-in Roulette</h1>
+          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2">
+              <span className="text-white font-normal text-xs">mixed</span>
+              <Switch 
+                checked={isMixedMode}
+                onCheckedChange={setIsMixedMode}
+                className="data-[state=checked]:bg-white data-[state=unchecked]:bg-gray-600"
+              />
+              <span className="text-white font-normal text-xs">light</span>
+            </div>
+            <button 
+              onClick={() => setCategorySelectorOpen(true)}
+              className="text-white font-normal text-xs flex items-center"
+            >
+              Kategorien wählen
+            </button>
+          </div>
         </div>
       </div>
 
@@ -329,12 +301,14 @@ export function QuizApp() {
             <div className="flex items-center justify-center h-full text-white text-xl">Lade Fragen...</div>
           ) : slides.length > 0 ? (
             slides[currentIndex].type === 'intro' ? (
-              <IntroSlide
-                type={slides[currentIndex].introType!}
-                onSwipeLeft={nextQuestion}
-                onSwipeRight={prevQuestion}
-                animationClass={animationClass}
-              />
+              <div className="flex items-center justify-center h-full">
+                <QuizCard
+                  question={slides[currentIndex].question!}
+                  onSwipeLeft={nextQuestion}
+                  onSwipeRight={prevQuestion}
+                  animationClass={animationClass}
+                />
+              </div>
             ) : (
               <QuizCard
                 question={slides[currentIndex].question!}
