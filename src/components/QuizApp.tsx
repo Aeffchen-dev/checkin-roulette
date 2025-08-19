@@ -276,20 +276,22 @@ export function QuizApp() {
           <h1 className="text-white font-kokoro text-2xl" style={{ fontFamily: 'Kokoro, serif', fontWeight: 'bold', fontStyle: 'italic' }}>Check-in Roulette</h1>
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
-              <span className="text-white font-normal text-xs">mixed</span>
+              <span className="text-white font-normal text-xs">light</span>
               <Switch 
                 checked={isMixedMode}
                 onCheckedChange={setIsMixedMode}
                 className="data-[state=checked]:bg-white data-[state=unchecked]:bg-gray-600"
               />
-              <span className="text-white font-normal text-xs">light</span>
+              <span className="text-white font-normal text-xs">mixed</span>
             </div>
-            <button 
-              onClick={() => setCategorySelectorOpen(true)}
-              className="text-white font-normal text-xs flex items-center"
+            <a 
+              href="mailto:hello@relationshipbydesign.de?subject=Feedback%20Open%20Relationship%20Workshop" 
+              className="text-white font-normal text-xs"
+              target="_blank"
+              rel="noopener noreferrer"
             >
-              Kategorien wählen
-            </button>
+              Feedback geben
+            </a>
           </div>
         </div>
       </div>
@@ -332,14 +334,12 @@ export function QuizApp() {
           >
             Relationship by design
           </a>
-          <a 
-            href="mailto:hello@relationshipbydesign.de?subject=Feedback%20Open%20Relationship%20Workshop" 
-            className="text-white font-normal text-xs"
-            target="_blank"
-            rel="noopener noreferrer"
+          <button 
+            onClick={() => setCategorySelectorOpen(true)}
+            className="text-white font-normal text-xs flex items-center"
           >
-            Feedback geben
-          </a>
+            Kategorien wählen
+          </button>
         </div>
       </div>
       
