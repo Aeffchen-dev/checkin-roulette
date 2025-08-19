@@ -27,6 +27,7 @@ export function QuizApp() {
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [availableCategories, setAvailableCategories] = useState<string[]>([]);
   const [isMixedMode, setIsMixedMode] = useState(true);
+  const [categoryColorMap, setCategoryColorMap] = useState<{ [category: string]: number }>({});
 
   useEffect(() => {
     fetchQuestions();
@@ -184,8 +185,13 @@ export function QuizApp() {
         setAllQuestions(shuffledQuestions);
         setIntroSlide(introContent);
         
-        // Extract unique categories
+        // Extract unique categories and assign colors
         const categories = Array.from(new Set(questions.map(q => q.category)));
+        const colorMap: { [category: string]: number } = {};
+        categories.forEach((category, index) => {
+          colorMap[category] = index;
+        });
+        setCategoryColorMap(colorMap);
         setAvailableCategories(categories);
         setSelectedCategories(categories); // Start with all categories selected
       }
@@ -273,7 +279,7 @@ export function QuizApp() {
       {/* App Header */}
       <div className="bg-black mt-4 flex items-center" style={{ paddingTop: 'env(safe-area-inset-top, 0)' }}>
         <div className="flex justify-between items-baseline px-6 w-full">
-          <h1 className="text-white font-kokoro text-2xl" style={{ fontFamily: 'Kokoro, serif', fontWeight: 'bold', fontStyle: 'italic' }}>Check-in Roulette</h1>
+          <h1 className="text-white font-kokoro text-2xl" style={{ fontFamily: 'Kokoro, serif', fontWeight: 'bold', fontStyle: 'italic' }}>Checkin Roulette</h1>
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
               <span className="text-white font-normal text-xs">light</span>
@@ -282,16 +288,8 @@ export function QuizApp() {
                 onCheckedChange={setIsMixedMode}
                 className="data-[state=checked]:bg-white data-[state=unchecked]:bg-white"
               />
-              <span className="text-white font-normal text-xs">mixed</span>
+              <span className="text-white font-normal text-xs">deep</span>
             </div>
-            <a 
-              href="mailto:hello@relationshipbydesign.de?subject=Feedback%20Open%20Relationship%20Workshop" 
-              className="text-white font-normal text-xs"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Feedback geben
-            </a>
           </div>
         </div>
       </div>
@@ -309,6 +307,7 @@ export function QuizApp() {
                   onSwipeLeft={nextQuestion}
                   onSwipeRight={prevQuestion}
                   animationClass={animationClass}
+                  categoryIndex={categoryColorMap[slides[currentIndex].question!.category] || 0}
                 />
               </div>
             ) : (
@@ -317,6 +316,7 @@ export function QuizApp() {
                 onSwipeLeft={nextQuestion}
                 onSwipeRight={prevQuestion}
                 animationClass={animationClass}
+                categoryIndex={categoryColorMap[slides[currentIndex].question!.category] || 0}
               />
             )
           ) : (

@@ -4,6 +4,7 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 interface Question {
   question: string;
   category: string;
+  depth?: 'light' | 'deep';
 }
 
 interface QuizCardProps {
@@ -11,9 +12,10 @@ interface QuizCardProps {
   onSwipeLeft: () => void;
   onSwipeRight: () => void;
   animationClass?: string;
+  categoryIndex?: number;
 }
 
-export function QuizCard({ question, onSwipeLeft, onSwipeRight, animationClass = '' }: QuizCardProps) {
+export function QuizCard({ question, onSwipeLeft, onSwipeRight, animationClass = '', categoryIndex = 0 }: QuizCardProps) {
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
   const [mouseStart, setMouseStart] = useState<number | null>(null);
@@ -88,78 +90,27 @@ export function QuizCard({ question, onSwipeLeft, onSwipeRight, animationClass =
     };
   }, [question.question]);
 
-  // Get category-specific colors
-  const getCategoryColors = (category: string) => {
-    switch (category.toLowerCase()) {
-      case 'werte':
-        return {
-          bg: 'bg-quiz-werte-bg',
-          text: 'text-quiz-werte-text'
-        };
-      case 'bedürfnisse':
-        return {
-          bg: 'bg-quiz-bedürfnisse-bg',
-          text: 'text-quiz-bedürfnisse-text'
-        };
-      case 'kommunikation':
-        return {
-          bg: 'bg-quiz-kommunikation-bg',
-          text: 'text-quiz-kommunikation-text'
-        };
-      case 'motivation':
-        return {
-          bg: 'bg-quiz-motivation-bg',
-          text: 'text-quiz-motivation-text'
-        };
-      case 'grenzen':
-        return {
-          bg: 'bg-quiz-grenzen-bg',
-          text: 'text-quiz-grenzen-text'
-        };
-      case 'vision':
-        return {
-          bg: 'bg-quiz-vision-bg',
-          text: 'text-quiz-vision-text'
-        };
-      case 'no go':
-        return {
-          bg: 'bg-quiz-no-go-bg',
-          text: 'text-quiz-no-go-text'
-        };
-      case 'risiko':
-        return {
-          bg: 'bg-quiz-risiko-bg',
-          text: 'text-quiz-risiko-text'
-        };
-      case 'regeln':
-        return {
-          bg: 'bg-quiz-regeln-bg',
-          text: 'text-quiz-regeln-text'
-        };
-      case 'info':
-        return {
-          bg: 'bg-quiz-info-bg',
-          text: 'text-quiz-info-text'
-        };
-      case 'reflexion':
-        return {
-          bg: 'bg-quiz-reflexion-bg',
-          text: 'text-quiz-reflexion-text'
-        };
-      case 'bindung':
-        return {
-          bg: 'bg-quiz-bindung-bg',
-          text: 'text-quiz-bindung-text'
-        };
-      default:
-        return {
-          bg: 'bg-quiz-category-bg',
-          text: 'text-quiz-category-text'
-        };
-    }
+  // Get category-specific colors using cycling system
+  const getCategoryColors = (categoryIndex: number) => {
+    const colorIndex = (categoryIndex % 6) + 1;
+    
+    // Map to determine text color based on background
+    const textColorMap: { [key: number]: string } = {
+      1: 'text-white', // purple - white text
+      2: 'text-white', // blue - white text  
+      3: 'text-black', // pink - black text
+      4: 'text-black', // yellow - black text
+      5: 'text-white', // cyan - white text
+      6: 'text-black', // mint green - black text
+    };
+    
+    return {
+      bg: `bg-quiz-category${colorIndex}-bg`,
+      text: textColorMap[colorIndex] || 'text-white'
+    };
   };
 
-  const categoryColors = getCategoryColors(question.category);
+  const categoryColors = getCategoryColors(categoryIndex);
 
   const onTouchStart = (e: React.TouchEvent) => {
     setTouchEnd(null);
