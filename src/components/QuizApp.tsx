@@ -203,24 +203,19 @@ export function QuizApp() {
         // Add the last field
         values.push(current.trim());
         
-        // Skip header row
+        // Skip header row if it exists
         if (i === 0 && (values[0]?.toLowerCase().includes('categor') || values[1]?.toLowerCase().includes('question'))) {
           continue;
         }
         
-        if (values.length >= 3 && values[0] && values[1] && values[2]) {
+        if (values.length >= 2 && values[0] && values[1]) {
           const question: Question = {
             category: values[0],
             question: values[1],
-            depth: values[2].toLowerCase().includes('light') ? 'light' : 'deep'
+            depth: values[2] && values[2].toLowerCase().includes('light') ? 'light' : 'deep'
           };
           
-          // First row (after header) becomes intro slide content
-          if (i === 1) {
-            introContent = question;
-          } else {
-            questions.push(question);
-          }
+          questions.push(question);
         }
       }
       
