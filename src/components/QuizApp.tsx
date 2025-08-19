@@ -144,11 +144,18 @@ export function QuizApp() {
       let csvText = '';
       
       try {
-        // Use the new Google Sheets URL
+        // Use the new Google Sheets URL with cache busting
         const spreadsheetId = '1ROCLsLu2rSJKRwkX5DkZHLHKzy_bksmHbgGqORG2DOk';
-        const csvUrl = `https://docs.google.com/spreadsheets/d/${spreadsheetId}/export?format=csv&gid=0`;
+        const timestamp = new Date().getTime();
+        const csvUrl = `https://docs.google.com/spreadsheets/d/${spreadsheetId}/export?format=csv&gid=0&cachebust=${timestamp}`;
         
-        const response = await fetch(csvUrl);
+        const response = await fetch(csvUrl, {
+          cache: 'no-cache',
+          headers: {
+            'Cache-Control': 'no-cache',
+            'Pragma': 'no-cache'
+          }
+        });
         if (!response.ok) {
           throw new Error('Failed to fetch spreadsheet data');
         }
