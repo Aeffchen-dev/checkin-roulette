@@ -15,6 +15,51 @@ interface SlideItem {
   question?: Question;
 }
 
+// Smart shuffle algorithm to distribute categories more evenly
+const smartShuffle = (questions: Question[]): Question[] => {
+  // Group questions by category
+  const categorizedQuestions: { [category: string]: Question[] } = {};
+  questions.forEach(q => {
+    if (!categorizedQuestions[q.category]) {
+      categorizedQuestions[q.category] = [];
+    }
+    categorizedQuestions[q.category].push(q);
+  });
+
+  // Shuffle questions within each category
+  Object.keys(categorizedQuestions).forEach(category => {
+    categorizedQuestions[category] = categorizedQuestions[category].sort(() => Math.random() - 0.5);
+  });
+
+  const categories = Object.keys(categorizedQuestions);
+  const result: Question[] = [];
+  const categoryCounters: { [category: string]: number } = {};
+  
+  // Initialize counters
+  categories.forEach(cat => categoryCounters[cat] = 0);
+
+  // Distribute questions more evenly
+  while (result.length < questions.length) {
+    // Shuffle categories for each round
+    const shuffledCategories = [...categories].sort(() => Math.random() - 0.5);
+    
+    for (const category of shuffledCategories) {
+      const categoryQuestions = categorizedQuestions[category];
+      const counter = categoryCounters[category];
+      
+      if (counter < categoryQuestions.length) {
+        result.push(categoryQuestions[counter]);
+        categoryCounters[category]++;
+        
+        // Break if we've added all questions
+        if (result.length >= questions.length) break;
+      }
+    }
+  }
+
+  return result;
+};
+
 export function QuizApp() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [animationClass, setAnimationClass] = useState('');
@@ -179,8 +224,8 @@ export function QuizApp() {
       }
       
       if (questions.length > 0) {
-        // Shuffle questions for random order on each reload
-        const shuffledQuestions = [...questions].sort(() => Math.random() - 0.5);
+        // Better shuffling algorithm to distribute categories evenly
+        const shuffledQuestions = smartShuffle(questions);
         
         setAllQuestions(shuffledQuestions);
         setIntroSlide(introContent);
