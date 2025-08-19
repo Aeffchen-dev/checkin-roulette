@@ -98,9 +98,9 @@ export function QuizCard({ question, onSwipeLeft, onSwipeRight, animationClass =
     const colorVars = {
       1: { bg: 'hsl(var(--quiz-category1-bg))', text: 'white' },
       2: { bg: 'hsl(var(--quiz-category2-bg))', text: 'white' },
-      3: { bg: 'hsl(var(--quiz-category3-bg))', text: 'black' },
+      3: { bg: 'hsl(var(--quiz-category3-bg))', text: 'white' },
       4: { bg: 'hsl(var(--quiz-category4-bg))', text: 'black' },
-      5: { bg: 'hsl(var(--quiz-category5-bg))', text: 'white' },
+      5: { bg: 'hsl(var(--quiz-category5-bg))', text: 'black' },
       6: { bg: 'hsl(var(--quiz-category6-bg))', text: 'black' },
     };
     
