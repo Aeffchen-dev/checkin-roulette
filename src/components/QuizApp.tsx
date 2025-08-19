@@ -13,6 +13,7 @@ interface Question {
 interface SlideItem {
   type: 'intro' | 'question';
   question?: Question;
+  isIntroSlide?: boolean;
 }
 
 // Smart shuffle algorithm to distribute categories more evenly
@@ -230,8 +231,9 @@ export function QuizApp() {
         setAllQuestions(shuffledQuestions);
         setIntroSlide(introContent);
         
-        // Extract unique categories and assign colors
-        const categories = Array.from(new Set(questions.map(q => q.category)));
+        // Extract unique categories and assign colors, exclude "01 Intro"
+        const categories = Array.from(new Set(questions.map(q => q.category)))
+          .filter(cat => cat !== '01 Intro');
         const colorMap: { [category: string]: number } = {};
         categories.forEach((category, index) => {
           colorMap[category] = index;
@@ -287,9 +289,12 @@ export function QuizApp() {
     const isFiltered = selectedCategories.length < availableCategories.length;
     const isLightMode = !isMixedMode;
     
-    // Filter by categories
+    // Get intro questions from "01 Intro" category
+    const introQuestions = allQuestions.filter(q => q.category === '01 Intro');
+    
+    // Filter by categories (excluding "01 Intro")
     let filteredQuestions = allQuestions.filter(q => 
-      selectedCategories.includes(q.category)
+      selectedCategories.includes(q.category) && q.category !== '01 Intro'
     );
     
     // Filter by depth if in light mode
@@ -301,9 +306,13 @@ export function QuizApp() {
     
     const slides: SlideItem[] = [];
     
-    // Add intro slide if not filtered and not in light mode and intro content exists
-    if (!isFiltered && !isLightMode && introSlide) {
-      slides.push({ type: 'intro', question: introSlide });
+    // Add intro slide from backend if available and no filters active and in mixed mode
+    if (!isFiltered && isMixedMode && introQuestions.length > 0) {
+      slides.push({ 
+        type: 'question', 
+        question: introQuestions[0], 
+        isIntroSlide: true 
+      });
     }
     
     // Add question slides
@@ -313,7 +322,7 @@ export function QuizApp() {
     
     setSlides(slides);
     setCurrentIndex(0); // Reset to first slide when filtering/mode changes
-  }, [selectedCategories, allQuestions, availableCategories.length, isMixedMode, introSlide]);
+  }, [selectedCategories, allQuestions, availableCategories.length, isMixedMode]);
 
   const handleCategoriesChange = (categories: string[]) => {
     setSelectedCategories(categories);
@@ -345,25 +354,14 @@ export function QuizApp() {
           {loading ? (
             <div className="flex items-center justify-center h-full text-white text-xl">Lade Fragen...</div>
           ) : slides.length > 0 ? (
-            slides[currentIndex].type === 'intro' ? (
-              <div className="flex items-center justify-center h-full">
-                <QuizCard
-                  question={slides[currentIndex].question!}
-                  onSwipeLeft={nextQuestion}
-                  onSwipeRight={prevQuestion}
-                  animationClass={animationClass}
-                  categoryIndex={categoryColorMap[slides[currentIndex].question!.category] || 0}
-                />
-              </div>
-            ) : (
-              <QuizCard
-                question={slides[currentIndex].question!}
-                onSwipeLeft={nextQuestion}
-                onSwipeRight={prevQuestion}
-                animationClass={animationClass}
-                categoryIndex={categoryColorMap[slides[currentIndex].question!.category] || 0}
-              />
-            )
+            <QuizCard
+              question={slides[currentIndex].question!}
+              onSwipeLeft={nextQuestion}
+              onSwipeRight={prevQuestion}
+              animationClass={animationClass}
+              categoryIndex={categoryColorMap[slides[currentIndex].question!.category] || 0}
+              isIntroSlide={slides[currentIndex].isIntroSlide}
+            />
           ) : (
             <div className="text-white text-xl">Keine Fragen verfügbar</div>
           )}
