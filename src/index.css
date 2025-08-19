@@ -48,9 +48,9 @@ All colors MUST be HSL.
     --quiz-surface: 0 0% 12%;
     
     /* Category-specific colors using the new provided colors */
-    --quiz-category1-bg: 0 100% 50%;         /* #FF0000 - red (intimacy) */
+    --quiz-category1-bg: 241 100% 50%;       /* #0500FF - blue (intimacy) */
     --quiz-category1-text: 0 0% 98%;         /* White text */
-    --quiz-category2-bg: 241 100% 50%;       /* #0500FF - blue (From the inside) */
+    --quiz-category2-bg: 0 100% 50%;         /* #FF0000 - red (From the inside) */
     --quiz-category2-text: 0 0% 98%;         /* White text */
     --quiz-category3-bg: 196 100% 50%;       /* #00D4FF - cyan (play) */
     --quiz-category3-text: 0 0% 98%;         /* White text */
