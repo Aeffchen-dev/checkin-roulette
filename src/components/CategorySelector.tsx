@@ -107,7 +107,7 @@ export function CategorySelector({
                   onClick={() => handleCategoryToggle(category)}
                 >
                   <span 
-                    className="font-bold text-xl"
+                    className="font-bold text-lg"
                     style={{ 
                       color: categoryColors.textColor,
                       fontFamily: 'Kokoro, serif',
@@ -140,8 +140,8 @@ export function CategorySelector({
                       >
                         {isSelected && (
                           <svg 
-                            width="44" 
-                            height="44" 
+                            width="52" 
+                            height="52" 
                             viewBox="0 0 24 24" 
                             fill="none"
                             style={{ 
