@@ -49,34 +49,34 @@ All colors MUST be HSL.
     
     /* Category-specific colors using the new provided colors */
     /* Original colors for category strips */
-    --quiz-category1-bg: 241 100% 50%;       /* #0500FF - blue (intimacy) */
+    --quiz-category1-bg: 199 92% 74%;        /* Blue category #81D4FA */
     --quiz-category1-text: 0 0% 98%;         /* White text */
-    --quiz-category2-bg: 0 100% 50%;         /* #FF0000 - red (From the inside) */
+    --quiz-category2-bg: 276 56% 76%;        /* Deep Purple category #C0A6E0 */
     --quiz-category2-text: 0 0% 98%;         /* White text */
-    --quiz-category3-bg: 196 100% 50%;       /* #00D4FF - cyan (play) */
+    --quiz-category3-bg: 186 67% 71%;        /* Cyan category #80DEEA */
     --quiz-category3-text: 0 0% 98%;         /* White text */
-    --quiz-category4-bg: 318 86% 75%;        /* #FF92EF - pink (Story of the day) */
+    --quiz-category4-bg: 162 73% 65%;        /* Teal category #66E7D0 */
     --quiz-category4-text: 0 0% 0%;          /* Black text */
-    --quiz-category5-bg: 60 100% 71%;        /* #FFFE6F - yellow (Visions) */
+    --quiz-category5-bg: 330 80% 87%;        /* Rosa Pink category #FAC6DA */
     --quiz-category5-text: 0 0% 0%;          /* Black text */
-    --quiz-category6-bg: 166 80% 69%;        /* #72F1C0 - mint green */
-    --quiz-category6-text: 0 0% 0%;          /* Black text */
+    --quiz-category6-bg: 199 92% 74%;        /* Blue category (repeat) */
+    --quiz-category6-text: 0 0% 98%;         /* White text */
     
-    /* Pastel variants for card backgrounds (10% lighter than original) */
-    --quiz-category1-bg-pastel: 241 100% 60%;   /* Blue pastel - 10% lighter */
-    --quiz-category2-bg-pastel: 0 100% 60%;     /* Red pastel - 10% lighter */
-    --quiz-category3-bg-pastel: 196 100% 60%;   /* Cyan pastel - 10% lighter */
-    --quiz-category4-bg-pastel: 310 85% 85%;    /* Very pink pastel */
-    --quiz-category5-bg-pastel: 60 100% 81%;    /* Yellow pastel - 10% lighter */
-    --quiz-category6-bg-pastel: 166 80% 79%;    /* Mint pastel - 10% lighter */
+    /* Pastel variants for card backgrounds */
+    --quiz-category1-bg-pastel: 199 92% 85%;    /* Blue card #B3E5FC */
+    --quiz-category2-bg-pastel: 266 56% 84%;    /* Deep Purple card #D1C4E9 */
+    --quiz-category3-bg-pastel: 186 67% 82%;    /* Cyan card #B2EBF2 */
+    --quiz-category4-bg-pastel: 162 100% 83%;   /* Teal card #A7FFEB */
+    --quiz-category5-bg-pastel: 330 80% 94%;    /* Rosa Pink card #FCE4EC */
+    --quiz-category6-bg-pastel: 199 92% 85%;    /* Blue card (repeat) */
     
-    /* Dark variants for text (almost black with color tint) */
-    --quiz-category1-text-dark: 241 80% 6%;     /* Darker blue */
-    --quiz-category2-text-dark: 0 80% 6%;       /* Darker red */
-    --quiz-category3-text-dark: 196 80% 6%;     /* Darker cyan */
-    --quiz-category4-text-dark: 318 60% 8%;     /* Darker pink */
-    --quiz-category5-text-dark: 60 70% 8%;      /* Darker yellow */
-    --quiz-category6-text-dark: 166 60% 8%;     /* Darker mint */
+    /* Dark variants for text */
+    --quiz-category1-text-dark: 210 98% 21%;    /* Blue text #013A6B */
+    --quiz-category2-text-dark: 250 82% 21%;    /* Deep Purple text #230A65 */
+    --quiz-category3-text-dark: 189 100% 15%;   /* Cyan text #00434A */
+    --quiz-category4-text-dark: 162 100% 9%;    /* Teal text #002E28 */
+    --quiz-category5-text-dark: 0 58% 24%;      /* Rosa Pink text #611616 */
+    --quiz-category6-text-dark: 210 98% 21%;    /* Blue text (repeat) */
     
     /* Legacy category colors - keeping for backward compatibility */
     --quiz-werte-bg: 266 100% 51%;           /* #7004FF */
