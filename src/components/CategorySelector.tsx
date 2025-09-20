@@ -85,10 +85,11 @@ export function CategorySelector({
               return (
                 <div 
                   key={category}
-                  className="flex items-center justify-between p-4 cursor-pointer"
+                  className="flex items-center justify-between cursor-pointer"
                   style={{ 
                     borderRadius: '999px',
-                    backgroundColor: categoryColors.cardBgColor
+                    backgroundColor: categoryColors.cardBgColor,
+                    padding: '8px 8px 8px 24px'
                   }}
                   onClick={() => handleCategoryToggle(category)}
                 >
