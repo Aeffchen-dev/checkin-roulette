@@ -123,8 +123,8 @@ export function CategorySelector({
                       <div
                         className="flex items-center justify-center"
                         style={{ 
-                          width: '48px', 
-                          height: '48px', 
+                          width: '40px', 
+                          height: '40px', 
                           borderRadius: '999px',
                           border: isSelected ? 'none' : `2px solid ${categoryColors.textColor}`,
                           backgroundColor: isSelected ? categoryColors.stripColor : 'transparent'
@@ -143,7 +143,7 @@ export function CategorySelector({
                             <path
                               d="m9 12 2 2 4-4"
                               stroke="currentColor"
-                              strokeWidth={3}
+                              strokeWidth={1.5}
                               strokeLinecap="round"
                               strokeLinejoin="round"
                               style={{
