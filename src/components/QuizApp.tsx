@@ -333,7 +333,7 @@ export function QuizApp() {
         <div className="flex justify-between items-baseline px-6 w-full">
           <h1 className="text-white font-kokoro text-2xl" style={{ fontFamily: 'Kokoro, serif', fontWeight: 'bold', fontStyle: 'italic' }}>Checkin Roulette</h1>
           <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1">
               <span 
                 className="text-white font-normal text-xs cursor-pointer hover:opacity-70 transition-opacity px-1 py-1"
                 onClick={() => setIsMixedMode(false)}
