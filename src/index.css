@@ -49,18 +49,18 @@ All colors MUST be HSL.
     
     /* Category-specific colors using the new provided colors */
     /* Original colors for category strips */
-    --quiz-category1-bg: 199 92% 74%;        /* Blue category #81D4FA */
-    --quiz-category1-text: 0 0% 98%;         /* White text */
+    --quiz-category1-bg: 199 92% 64%;        /* Blue category darker */
+    --quiz-category1-text: 210 98% 21%;      /* Blue text #013A6B */
     --quiz-category2-bg: 276 56% 76%;        /* Deep Purple category #C0A6E0 */
-    --quiz-category2-text: 0 0% 98%;         /* White text */
+    --quiz-category2-text: 250 82% 21%;      /* Deep Purple text #230A65 */
     --quiz-category3-bg: 186 67% 71%;        /* Cyan category #80DEEA */
-    --quiz-category3-text: 0 0% 98%;         /* White text */
+    --quiz-category3-text: 189 100% 15%;     /* Cyan text #00434A */
     --quiz-category4-bg: 162 73% 65%;        /* Teal category #66E7D0 */
-    --quiz-category4-text: 0 0% 0%;          /* Black text */
+    --quiz-category4-text: 162 100% 9%;      /* Teal text #002E28 */
     --quiz-category5-bg: 330 80% 87%;        /* Rosa Pink category #FAC6DA */
-    --quiz-category5-text: 0 0% 0%;          /* Black text */
-    --quiz-category6-bg: 199 92% 74%;        /* Blue category (repeat) */
-    --quiz-category6-text: 0 0% 98%;         /* White text */
+    --quiz-category5-text: 0 58% 24%;        /* Rosa Pink text #611616 */
+    --quiz-category6-bg: 199 92% 64%;        /* Blue category darker (repeat) */
+    --quiz-category6-text: 210 98% 21%;      /* Blue text (repeat) */
     
     /* Pastel variants for card backgrounds */
     --quiz-category1-bg-pastel: 199 92% 85%;    /* Blue card #B3E5FC */
