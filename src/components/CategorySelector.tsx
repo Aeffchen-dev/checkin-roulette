@@ -85,14 +85,16 @@ export function CategorySelector({
               return (
                 <div 
                   key={category}
-                  className={`flex items-center justify-between cursor-pointer transition-all duration-200 ${isSelected ? 'scale-x-105' : ''}`}
+                  className={`flex items-center justify-between cursor-pointer transition-transform duration-300 ease-out ${isSelected ? 'animate-bounce-right' : ''}`}
                   style={{ 
                     borderTopLeftRadius: '8px',
                     borderBottomLeftRadius: '8px',
                     borderTopRightRadius: '999px',
                     borderBottomRightRadius: '999px',
                     backgroundColor: categoryColors.cardBgColor,
-                    padding: '8px 8px 8px 32px'
+                    padding: '8px 8px 8px 32px',
+                    transformOrigin: 'left center',
+                    transform: isSelected ? 'scaleX(1.08)' : 'scaleX(1)'
                   }}
                   onClick={() => handleCategoryToggle(category)}
                 >
@@ -130,8 +132,8 @@ export function CategorySelector({
                       >
                         {isSelected && (
                           <svg 
-                            width="24" 
-                            height="24" 
+                            width="32" 
+                            height="32" 
                             viewBox="0 0 24 24" 
                             fill="none"
                             style={{ 
@@ -141,7 +143,7 @@ export function CategorySelector({
                             <path
                               d="m9 12 2 2 4-4"
                               stroke="currentColor"
-                              strokeWidth={2}
+                              strokeWidth={2.5}
                               strokeLinecap="round"
                               strokeLinejoin="round"
                               style={{

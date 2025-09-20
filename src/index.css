@@ -192,6 +192,26 @@ All colors MUST be HSL.
   }
 }
 
+/* Bounce right animation */
+@keyframes bounce-right {
+  0% {
+    transform: scaleX(1);
+  }
+  30% {
+    transform: scaleX(1.12);
+  }
+  70% {
+    transform: scaleX(1.06);
+  }
+  100% {
+    transform: scaleX(1.08);
+  }
+}
+
+.animate-bounce-right {
+  animation: bounce-right 0.4s ease-out;
+}
+
 @layer base {
   * {
     @apply border-border;
