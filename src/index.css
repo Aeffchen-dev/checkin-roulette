@@ -57,8 +57,8 @@ All colors MUST be HSL.
     --quiz-category3-text: 189 100% 15%;     /* Cyan text #00434A */
     --quiz-category4-bg: 162 73% 65%;        /* Teal category #66E7D0 */
     --quiz-category4-text: 162 100% 9%;      /* Teal text #002E28 */
-    --quiz-category5-bg: 330 80% 87%;        /* Rosa Pink category #FAC6DA */
-    --quiz-category5-text: 0 58% 24%;        /* Rosa Pink text #611616 */
+    --quiz-category5-bg: 320 80% 87%;        /* Rosa Pink category more pink */
+    --quiz-category5-text: 320 58% 24%;      /* Rosa Pink text more pink */
     --quiz-category6-bg: 199 92% 64%;        /* Blue category darker (repeat) */
     --quiz-category6-text: 210 98% 21%;      /* Blue text (repeat) */
     
@@ -67,7 +67,7 @@ All colors MUST be HSL.
     --quiz-category2-bg-pastel: 266 56% 84%;    /* Deep Purple card #D1C4E9 */
     --quiz-category3-bg-pastel: 186 67% 82%;    /* Cyan card #B2EBF2 */
     --quiz-category4-bg-pastel: 162 100% 83%;   /* Teal card #A7FFEB */
-    --quiz-category5-bg-pastel: 330 80% 94%;    /* Rosa Pink card #FCE4EC */
+    --quiz-category5-bg-pastel: 320 80% 94%;    /* Rosa Pink card more pink */
     --quiz-category6-bg-pastel: 199 92% 85%;    /* Blue card (repeat) */
     
     /* Dark variants for text */
@@ -75,7 +75,7 @@ All colors MUST be HSL.
     --quiz-category2-text-dark: 250 82% 21%;    /* Deep Purple text #230A65 */
     --quiz-category3-text-dark: 189 100% 15%;   /* Cyan text #00434A */
     --quiz-category4-text-dark: 162 100% 9%;    /* Teal text #002E28 */
-    --quiz-category5-text-dark: 0 58% 24%;      /* Rosa Pink text #611616 */
+    --quiz-category5-text-dark: 320 58% 24%;     /* Rosa Pink text more pink */
     --quiz-category6-text-dark: 210 98% 21%;    /* Blue text (repeat) */
     
     /* Legacy category colors - keeping for backward compatibility */
