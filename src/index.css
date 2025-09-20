@@ -48,6 +48,7 @@ All colors MUST be HSL.
     --quiz-surface: 0 0% 12%;
     
     /* Category-specific colors using the new provided colors */
+    /* Original colors for category strips */
     --quiz-category1-bg: 241 100% 50%;       /* #0500FF - blue (intimacy) */
     --quiz-category1-text: 0 0% 98%;         /* White text */
     --quiz-category2-bg: 0 100% 50%;         /* #FF0000 - red (From the inside) */
@@ -60,6 +61,22 @@ All colors MUST be HSL.
     --quiz-category5-text: 0 0% 0%;          /* Black text */
     --quiz-category6-bg: 166 80% 69%;        /* #72F1C0 - mint green */
     --quiz-category6-text: 0 0% 0%;          /* Black text */
+    
+    /* Pastel variants for card backgrounds (20% lighter, reduced saturation) */
+    --quiz-category1-bg-pastel: 241 60% 85%;    /* Light blue pastel */
+    --quiz-category2-bg-pastel: 0 60% 85%;      /* Light red pastel */
+    --quiz-category3-bg-pastel: 196 60% 85%;    /* Light cyan pastel */
+    --quiz-category4-bg-pastel: 318 50% 90%;    /* Light pink pastel */
+    --quiz-category5-bg-pastel: 60 60% 88%;     /* Light yellow pastel */
+    --quiz-category6-bg-pastel: 166 50% 85%;    /* Light mint pastel */
+    
+    /* Dark variants for text (almost black with color tint) */
+    --quiz-category1-text-dark: 241 80% 12%;    /* Dark blue */
+    --quiz-category2-text-dark: 0 80% 12%;      /* Dark red */
+    --quiz-category3-text-dark: 196 80% 12%;    /* Dark cyan */
+    --quiz-category4-text-dark: 318 60% 15%;    /* Dark pink */
+    --quiz-category5-text-dark: 60 70% 15%;     /* Dark yellow */
+    --quiz-category6-text-dark: 166 60% 15%;    /* Dark mint */
     
     /* Legacy category colors - keeping for backward compatibility */
     --quiz-werte-bg: 266 100% 51%;           /* #7004FF */

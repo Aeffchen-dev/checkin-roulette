@@ -96,12 +96,42 @@ export function QuizCard({ question, onSwipeLeft, onSwipeRight, animationClass =
     
     // CSS custom properties for the colors
     const colorVars = {
-      1: { bg: 'hsl(var(--quiz-category1-bg))', text: 'white' },
-      2: { bg: 'hsl(var(--quiz-category2-bg))', text: 'white' },
-      3: { bg: 'hsl(var(--quiz-category3-bg))', text: 'black' },
-      4: { bg: 'hsl(var(--quiz-category4-bg))', text: 'black' },
-      5: { bg: 'hsl(var(--quiz-category5-bg))', text: 'black' },
-      6: { bg: 'hsl(var(--quiz-category6-bg))', text: 'black' },
+      1: { 
+        stripBg: 'hsl(var(--quiz-category1-bg))', 
+        stripText: 'white',
+        cardBg: 'hsl(var(--quiz-category1-bg-pastel))',
+        textColor: 'hsl(var(--quiz-category1-text-dark))'
+      },
+      2: { 
+        stripBg: 'hsl(var(--quiz-category2-bg))', 
+        stripText: 'white',
+        cardBg: 'hsl(var(--quiz-category2-bg-pastel))',
+        textColor: 'hsl(var(--quiz-category2-text-dark))'
+      },
+      3: { 
+        stripBg: 'hsl(var(--quiz-category3-bg))', 
+        stripText: 'black',
+        cardBg: 'hsl(var(--quiz-category3-bg-pastel))',
+        textColor: 'hsl(var(--quiz-category3-text-dark))'
+      },
+      4: { 
+        stripBg: 'hsl(var(--quiz-category4-bg))', 
+        stripText: 'black',
+        cardBg: 'hsl(var(--quiz-category4-bg-pastel))',
+        textColor: 'hsl(var(--quiz-category4-text-dark))'
+      },
+      5: { 
+        stripBg: 'hsl(var(--quiz-category5-bg))', 
+        stripText: 'black',
+        cardBg: 'hsl(var(--quiz-category5-bg-pastel))',
+        textColor: 'hsl(var(--quiz-category5-text-dark))'
+      },
+      6: { 
+        stripBg: 'hsl(var(--quiz-category6-bg))', 
+        stripText: 'black',
+        cardBg: 'hsl(var(--quiz-category6-bg-pastel))',
+        textColor: 'hsl(var(--quiz-category6-text-dark))'
+      },
     };
     
     return colorVars[colorIndex as keyof typeof colorVars] || colorVars[1];
@@ -169,10 +199,11 @@ export function QuizCard({ question, onSwipeLeft, onSwipeRight, animationClass =
 
   return (
     <div 
-      className={`relative w-full max-w-[500px] mx-auto bg-[hsl(var(--card-background))] rounded-2xl shadow-card overflow-hidden select-none max-h-full ${animationClass}`}
+      className={`relative w-full max-w-[500px] mx-auto rounded-2xl shadow-card overflow-hidden select-none max-h-full ${animationClass}`}
       style={{
         height: '100%',
-        maxHeight: '100%'
+        maxHeight: '100%',
+        backgroundColor: categoryColors.cardBg
       }}
       onTouchStart={onTouchStart}
       onTouchMove={onTouchMove}
@@ -197,7 +228,7 @@ export function QuizCard({ question, onSwipeLeft, onSwipeRight, animationClass =
       {/* Category Strip */}
       <div 
         className="absolute left-0 top-0 h-full w-8 flex items-center justify-center"
-        style={{ backgroundColor: categoryColors.bg }}
+        style={{ backgroundColor: categoryColors.stripBg }}
       >
         <div className="transform -rotate-90 whitespace-nowrap">
           {Array(20).fill(question.category).map((cat, index) => (
@@ -205,7 +236,7 @@ export function QuizCard({ question, onSwipeLeft, onSwipeRight, animationClass =
               key={index} 
               className="font-bold text-sm tracking-wide uppercase" 
               style={{ 
-                color: categoryColors.text,
+                color: categoryColors.stripText,
                 marginRight: index < 19 ? '8px' : '0' 
               }}
             >
@@ -221,8 +252,10 @@ export function QuizCard({ question, onSwipeLeft, onSwipeRight, animationClass =
         <div ref={containerRef} className="flex-1 flex items-start justify-start text-left pt-16 w-full">
           <h1 
             ref={textRef}
-            className="text-3xl md:text-4xl lg:text-4xl font-normal text-foreground leading-tight w-full max-w-full" 
-            style={{ fontFamily: 'Arial, sans-serif' }}
+            className="text-3xl md:text-4xl lg:text-4xl font-normal leading-tight w-full max-w-full font-kokoro" 
+            style={{ 
+              color: categoryColors.textColor
+            }}
           >
             {processedText.length > 0 ? processedText : question.question}
           </h1>
