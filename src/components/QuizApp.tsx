@@ -334,13 +334,24 @@ export function QuizApp() {
           <h1 className="text-white font-kokoro text-2xl" style={{ fontFamily: 'Kokoro, serif', fontWeight: 'bold', fontStyle: 'italic' }}>Checkin Roulette</h1>
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
-              <span className="text-white font-normal text-xs">light</span>
+              <span className="text-white font-normal text-xs">👀</span>
+              <span 
+                className="text-white font-normal text-xs cursor-pointer hover:opacity-70 transition-opacity px-1 py-1"
+                onClick={() => setIsMixedMode(false)}
+              >
+                light
+              </span>
               <Switch 
                 checked={isMixedMode}
                 onCheckedChange={setIsMixedMode}
                 className="data-[state=checked]:bg-white data-[state=unchecked]:bg-white"
               />
-              <span className="text-white font-normal text-xs">deep</span>
+              <span 
+                className="text-white font-normal text-xs cursor-pointer hover:opacity-70 transition-opacity px-1 py-1"
+                onClick={() => setIsMixedMode(true)}
+              >
+                deep
+              </span>
             </div>
           </div>
         </div>
