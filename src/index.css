@@ -182,6 +182,16 @@ All colors MUST be HSL.
   font-display: swap;
 }
 
+/* Checkmark animation */
+@keyframes drawCheckmark {
+  0% {
+    stroke-dashoffset: 12;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
 @layer base {
   * {
     @apply border-border;

@@ -85,7 +85,7 @@ export function CategorySelector({
               return (
                 <div 
                   key={category}
-                  className="flex items-center justify-between cursor-pointer"
+                  className={`flex items-center justify-between cursor-pointer transition-all duration-200 ${isSelected ? 'scale-x-105' : ''}`}
                   style={{ 
                     borderTopLeftRadius: '8px',
                     borderBottomLeftRadius: '8px',
@@ -129,14 +129,28 @@ export function CategorySelector({
                         }}
                       >
                         {isSelected && (
-                          <Check 
+                          <svg 
+                            width="24" 
+                            height="24" 
+                            viewBox="0 0 24 24" 
+                            fill="none"
                             style={{ 
-                              width: '24px', 
-                              height: '24px',
                               color: categoryColors.textColor
                             }}
-                            strokeWidth={2}
-                          />
+                          >
+                            <path
+                              d="m9 12 2 2 4-4"
+                              stroke="currentColor"
+                              strokeWidth={2}
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              style={{
+                                strokeDasharray: '12',
+                                strokeDashoffset: '12',
+                                animation: 'drawCheckmark 0.3s ease-out forwards'
+                              }}
+                            />
+                          </svg>
                         )}
                       </div>
                     </div>
