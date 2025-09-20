@@ -50,17 +50,17 @@ All colors MUST be HSL.
     /* Category-specific colors using the new provided colors */
     /* Original colors for category strips */
     --quiz-category1-bg: 199 100% 64%;       /* Blue category darker - more saturated */
-    --quiz-category1-text: 210 100% 21%;     /* Blue text - more saturated */
-    --quiz-category2-bg: 276 65% 80%;        /* Deep Purple category - lighter */
-    --quiz-category2-text: 250 90% 18%;      /* Deep Purple text - darker */
-    --quiz-category3-bg: 186 75% 65%;        /* Cyan category - darker */
-    --quiz-category3-text: 189 100% 15%;     /* Cyan text (already max) */
+    --quiz-category1-text: 210 100% 18%;     /* Blue text - darker */
+    --quiz-category2-bg: 276 65% 76%;        /* Deep Purple category - slightly darker */
+    --quiz-category2-text: 250 90% 15%;      /* Deep Purple text - darker */
+    --quiz-category3-bg: 186 75% 61%;        /* Cyan category - slightly darker */
+    --quiz-category3-text: 189 100% 12%;     /* Cyan text - darker */
     --quiz-category4-bg: 162 80% 65%;        /* Teal category - more saturated */
-    --quiz-category4-text: 162 100% 9%;      /* Teal text (already max) */
+    --quiz-category4-text: 162 100% 6%;      /* Teal text - darker */
     --quiz-category5-bg: 300 88% 87%;        /* Rosa Pink category - much more pink */
-    --quiz-category5-text: 300 68% 24%;      /* Rosa Pink text - much more pink */
+    --quiz-category5-text: 300 68% 21%;      /* Rosa Pink text - darker */
     --quiz-category6-bg: 199 100% 64%;       /* Blue category darker (repeat) - more saturated */
-    --quiz-category6-text: 210 100% 21%;     /* Blue text (repeat) - more saturated */
+    --quiz-category6-text: 210 100% 18%;     /* Blue text (repeat) - darker */
     
     /* Pastel variants for card backgrounds */
     --quiz-category1-bg-pastel: 199 100% 85%;   /* Blue card - more saturated */
@@ -71,12 +71,12 @@ All colors MUST be HSL.
     --quiz-category6-bg-pastel: 199 100% 85%;   /* Blue card (repeat) - more saturated */
     
     /* Dark variants for text */
-    --quiz-category1-text-dark: 210 100% 21%;   /* Blue text - more saturated */
-    --quiz-category2-text-dark: 250 90% 18%;    /* Deep Purple text - darker */
-    --quiz-category3-text-dark: 189 100% 15%;   /* Cyan text (already max) */
-    --quiz-category4-text-dark: 162 100% 9%;    /* Teal text (already max) */
-    --quiz-category5-text-dark: 300 68% 24%;    /* Rosa Pink text - much more pink */
-    --quiz-category6-text-dark: 210 100% 21%;   /* Blue text (repeat) - more saturated */
+    --quiz-category1-text-dark: 210 100% 18%;   /* Blue text - darker */
+    --quiz-category2-text-dark: 250 90% 15%;    /* Deep Purple text - darker */
+    --quiz-category3-text-dark: 189 100% 12%;   /* Cyan text - darker */
+    --quiz-category4-text-dark: 162 100% 6%;    /* Teal text - darker */
+    --quiz-category5-text-dark: 300 68% 21%;    /* Rosa Pink text - darker */
+    --quiz-category6-text-dark: 210 100% 18%;   /* Blue text (repeat) - darker */
     
     /* Legacy category colors - keeping for backward compatibility */
     --quiz-werte-bg: 266 100% 51%;           /* #7004FF */
