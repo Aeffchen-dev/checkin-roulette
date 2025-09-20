@@ -71,12 +71,12 @@ All colors MUST be HSL.
     --quiz-category6-bg-pastel: 166 80% 79%;    /* Mint pastel - 10% lighter */
     
     /* Dark variants for text (almost black with color tint) */
-    --quiz-category1-text-dark: 241 80% 12%;    /* Dark blue */
-    --quiz-category2-text-dark: 0 80% 12%;      /* Dark red */
-    --quiz-category3-text-dark: 196 80% 12%;    /* Dark cyan */
-    --quiz-category4-text-dark: 318 60% 15%;    /* Dark pink */
-    --quiz-category5-text-dark: 60 70% 15%;     /* Dark yellow */
-    --quiz-category6-text-dark: 166 60% 15%;    /* Dark mint */
+    --quiz-category1-text-dark: 241 80% 6%;     /* Darker blue */
+    --quiz-category2-text-dark: 0 80% 6%;       /* Darker red */
+    --quiz-category3-text-dark: 196 80% 6%;     /* Darker cyan */
+    --quiz-category4-text-dark: 318 60% 8%;     /* Darker pink */
+    --quiz-category5-text-dark: 60 70% 8%;      /* Darker yellow */
+    --quiz-category6-text-dark: 166 60% 8%;     /* Darker mint */
     
     /* Legacy category colors - keeping for backward compatibility */
     --quiz-werte-bg: 266 100% 51%;           /* #7004FF */
