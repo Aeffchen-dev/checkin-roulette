@@ -69,7 +69,7 @@ export function CategorySelector({
         </DialogDescription>
         <div className="flex flex-col h-full relative w-full max-h-full min-h-0">
           {/* Header */}
-          <div className="absolute top-6 left-6 right-6 z-10 flex items-baseline justify-between">
+          <div className="absolute top-8 left-6 right-6 z-10 flex items-baseline justify-between">
             <h2 className="text-white text-xl font-normal">
               Kategorien wählen
             </h2>
@@ -82,7 +82,7 @@ export function CategorySelector({
           </div>
 
           {/* Categories List */}
-          <ScrollArea className="flex-1 pt-20 min-h-0">
+          <ScrollArea className="flex-1 pt-28 min-h-0">
             <div className="px-4 space-y-4 pb-6">
               {categories.map((category, index) => {
               const isSelected = tempSelection.includes(category);
