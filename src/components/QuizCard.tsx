@@ -252,7 +252,7 @@ export function QuizCard({ question, onSwipeLeft, onSwipeRight, animationClass =
         <div ref={containerRef} className="flex-1 flex items-start justify-start text-left pt-16 w-full">
           <h1 
             ref={textRef}
-            className="text-3xl md:text-4xl lg:text-5xl w-full max-w-full" 
+            className="text-5xl md:text-6xl lg:text-7xl w-full max-w-full" 
             style={{ 
               color: categoryColors.textColor,
               fontFamily: 'Kokoro, serif',
