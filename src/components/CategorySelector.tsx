@@ -31,7 +31,7 @@ export function CategorySelector({
     // Use index as seed for consistent random values across renders
     const seed = (index + 1) * 137; // Simple pseudo-random
     const random = (seed % 100) / 100;
-    return 77 + (random * 6); // 77% to 83% (80% ±3%)
+    return 70 + (random * 20); // 70% to 90% (80% ±10%)
   };
 
   const getCategoryColors = (index: number) => {
@@ -99,7 +99,7 @@ export function CategorySelector({
                     borderTopRightRadius: '999px',
                     borderBottomRightRadius: '999px',
                     backgroundColor: categoryColors.cardBgColor,
-                    padding: '8px 8px 8px 32px',
+                    padding: '8px 8px 8px 16px',
                     transformOrigin: 'left center',
                     transform: isSelected ? 'scaleX(1.12)' : 'scaleX(1)',
                     width: `${itemWidth}%`
@@ -131,8 +131,8 @@ export function CategorySelector({
                       <div
                         className="flex items-center justify-center"
                         style={{ 
-                          width: '40px', 
-                          height: '40px', 
+                          width: '36px', 
+                          height: '36px', 
                           borderRadius: '999px',
                           border: isSelected ? 'none' : `2px solid ${categoryColors.textColor}`,
                           backgroundColor: isSelected ? categoryColors.stripColor : 'transparent'
@@ -140,8 +140,8 @@ export function CategorySelector({
                       >
                         {isSelected && (
                           <svg 
-                            width="48" 
-                            height="48" 
+                            width="36" 
+                            height="36" 
                             viewBox="0 0 24 24" 
                             fill="none"
                             style={{ 
