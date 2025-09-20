@@ -353,7 +353,7 @@ export function QuizApp() {
                     left: '2px'
                   }}
                 >
-                  <span className="text-xs">👀</span>
+                  <span className="text-xs" style={{ fontSize: '0.64rem' }}>👀</span>
                 </div>
               </div>
               <span 
