@@ -31,7 +31,7 @@ export function CategorySelector({
     // Use index as seed for consistent random values across renders
     const seed = (index + 1) * 137; // Simple pseudo-random
     const random = (seed % 100) / 100;
-    return 70 + (random * 20); // 70% to 90% (80% ±10%)
+    return 77 + (random * 6); // 77% to 83% (6% total variation)
   };
 
   const getCategoryColors = (index: number) => {
