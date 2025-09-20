@@ -94,7 +94,7 @@ export function CategorySelector({
                     backgroundColor: categoryColors.cardBgColor,
                     padding: '8px 8px 8px 32px',
                     transformOrigin: 'left center',
-                    transform: isSelected ? 'scaleX(1.08)' : 'scaleX(1)',
+                    transform: isSelected ? 'scaleX(1.12)' : 'scaleX(1)',
                     width: '80%'
                   }}
                   onClick={() => handleCategoryToggle(category)}
@@ -133,8 +133,8 @@ export function CategorySelector({
                       >
                         {isSelected && (
                           <svg 
-                            width="40" 
-                            height="40" 
+                            width="48" 
+                            height="48" 
                             viewBox="0 0 24 24" 
                             fill="none"
                             style={{ 

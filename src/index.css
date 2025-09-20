@@ -198,13 +198,13 @@ All colors MUST be HSL.
     transform: scaleX(1);
   }
   30% {
-    transform: scaleX(1.12);
+    transform: scaleX(1.16);
   }
   70% {
-    transform: scaleX(1.06);
+    transform: scaleX(1.10);
   }
   100% {
-    transform: scaleX(1.08);
+    transform: scaleX(1.12);
   }
 }
 
