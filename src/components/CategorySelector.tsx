@@ -102,6 +102,7 @@ export function CategorySelector({
                       color: categoryColors.textColor,
                       fontFamily: 'Kokoro, serif',
                       fontWeight: 'bold',
+                      fontStyle: 'italic',
                       letterSpacing: '0'
                     }}
                   >
