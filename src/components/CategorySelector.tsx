@@ -28,7 +28,11 @@ export function CategorySelector({
 
   const getCategoryColors = (index: number) => {
     const colorIndex = (index % 6) + 1;
-    return `hsl(var(--quiz-category${colorIndex}-bg))`;
+    return {
+      stripColor: `hsl(var(--quiz-category${colorIndex}-bg))`,
+      cardBgColor: `hsl(var(--quiz-category${colorIndex}-bg-pastel))`,
+      textColor: `hsl(var(--quiz-category${colorIndex}-text-dark))`
+    };
   };
 
   const handleCategoryToggle = (category: string) => {
@@ -76,19 +80,23 @@ export function CategorySelector({
             <div className="px-6 space-y-3 pb-6">
               {categories.map((category, index) => {
               const isSelected = tempSelection.includes(category);
-              const borderColor = getCategoryColors(index);
+              const categoryColors = getCategoryColors(index);
               
               return (
                 <div 
                   key={category}
-                  className="flex items-center justify-between p-4 border-l-8 bg-[#161616] cursor-pointer"
+                  className="flex items-center justify-between p-4 border-l-8 cursor-pointer"
                   style={{ 
-                    borderRadius: '4px',
-                    borderLeftColor: borderColor
+                    borderRadius: '999px',
+                    borderLeftColor: categoryColors.stripColor,
+                    backgroundColor: categoryColors.cardBgColor
                   }}
                   onClick={() => handleCategoryToggle(category)}
                 >
-                  <span className="text-white font-bold text-sm uppercase tracking-wide">
+                  <span 
+                    className="font-bold text-sm uppercase tracking-wide"
+                    style={{ color: categoryColors.textColor }}
+                  >
                     {category}
                   </span>
                   <div onClick={(e) => e.stopPropagation()}>
@@ -102,19 +110,22 @@ export function CategorySelector({
                       }}
                     >
                       <div
-                        className={`w-5 h-5 border border-white flex items-center justify-center ${isSelected ? 'bg-white' : 'bg-transparent'}`}
+                        className="flex items-center justify-center"
                         style={{ 
-                          width: '20px', 
-                          height: '20px', 
-                          borderRadius: '24px',
-                          outline: '1px solid white',
-                          outlineOffset: '0px'
+                          width: '32px', 
+                          height: '32px', 
+                          borderRadius: '999px',
+                          border: `2px solid ${categoryColors.textColor}`,
+                          backgroundColor: isSelected ? categoryColors.stripColor : 'transparent'
                         }}
                       >
                         {isSelected && (
                           <Check 
-                            className="text-black" 
-                            style={{ width: '14px', height: '14px' }}
+                            style={{ 
+                              width: '18px', 
+                              height: '18px',
+                              color: categoryColors.textColor
+                            }}
                             strokeWidth={2}
                           />
                         )}
