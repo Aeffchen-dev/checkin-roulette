@@ -49,34 +49,34 @@ All colors MUST be HSL.
     
     /* Category-specific colors using the new provided colors */
     /* Original colors for category strips */
-    --quiz-category1-bg: 199 92% 64%;        /* Blue category darker */
-    --quiz-category1-text: 210 98% 21%;      /* Blue text #013A6B */
-    --quiz-category2-bg: 276 56% 76%;        /* Deep Purple category #C0A6E0 */
-    --quiz-category2-text: 250 82% 21%;      /* Deep Purple text #230A65 */
-    --quiz-category3-bg: 186 67% 71%;        /* Cyan category #80DEEA */
-    --quiz-category3-text: 189 100% 15%;     /* Cyan text #00434A */
-    --quiz-category4-bg: 162 73% 65%;        /* Teal category #66E7D0 */
-    --quiz-category4-text: 162 100% 9%;      /* Teal text #002E28 */
-    --quiz-category5-bg: 320 80% 87%;        /* Rosa Pink category more pink */
-    --quiz-category5-text: 320 58% 24%;      /* Rosa Pink text more pink */
-    --quiz-category6-bg: 199 92% 64%;        /* Blue category darker (repeat) */
-    --quiz-category6-text: 210 98% 21%;      /* Blue text (repeat) */
+    --quiz-category1-bg: 199 100% 64%;       /* Blue category darker - more saturated */
+    --quiz-category1-text: 210 100% 21%;     /* Blue text - more saturated */
+    --quiz-category2-bg: 276 65% 76%;        /* Deep Purple category - more saturated */
+    --quiz-category2-text: 250 90% 21%;      /* Deep Purple text - more saturated */
+    --quiz-category3-bg: 186 75% 71%;        /* Cyan category - more saturated */
+    --quiz-category3-text: 189 100% 15%;     /* Cyan text (already max) */
+    --quiz-category4-bg: 162 80% 65%;        /* Teal category - more saturated */
+    --quiz-category4-text: 162 100% 9%;      /* Teal text (already max) */
+    --quiz-category5-bg: 320 88% 87%;        /* Rosa Pink category - more saturated */
+    --quiz-category5-text: 320 68% 24%;      /* Rosa Pink text - more saturated */
+    --quiz-category6-bg: 199 100% 64%;       /* Blue category darker (repeat) - more saturated */
+    --quiz-category6-text: 210 100% 21%;     /* Blue text (repeat) - more saturated */
     
     /* Pastel variants for card backgrounds */
-    --quiz-category1-bg-pastel: 199 92% 85%;    /* Blue card #B3E5FC */
-    --quiz-category2-bg-pastel: 266 56% 84%;    /* Deep Purple card #D1C4E9 */
-    --quiz-category3-bg-pastel: 186 67% 82%;    /* Cyan card #B2EBF2 */
-    --quiz-category4-bg-pastel: 162 100% 83%;   /* Teal card #A7FFEB */
-    --quiz-category5-bg-pastel: 310 80% 94%;    /* Rosa Pink card much more pink */
-    --quiz-category6-bg-pastel: 199 92% 85%;    /* Blue card (repeat) */
+    --quiz-category1-bg-pastel: 199 100% 85%;   /* Blue card - more saturated */
+    --quiz-category2-bg-pastel: 266 65% 84%;    /* Deep Purple card - more saturated */
+    --quiz-category3-bg-pastel: 186 75% 82%;    /* Cyan card - more saturated */
+    --quiz-category4-bg-pastel: 162 100% 83%;   /* Teal card (already max) */
+    --quiz-category5-bg-pastel: 310 88% 94%;    /* Rosa Pink card - more saturated */
+    --quiz-category6-bg-pastel: 199 100% 85%;   /* Blue card (repeat) - more saturated */
     
     /* Dark variants for text */
-    --quiz-category1-text-dark: 210 98% 21%;    /* Blue text #013A6B */
-    --quiz-category2-text-dark: 250 82% 21%;    /* Deep Purple text #230A65 */
-    --quiz-category3-text-dark: 189 100% 15%;   /* Cyan text #00434A */
-    --quiz-category4-text-dark: 162 100% 9%;    /* Teal text #002E28 */
-    --quiz-category5-text-dark: 320 58% 24%;     /* Rosa Pink text more pink */
-    --quiz-category6-text-dark: 210 98% 21%;    /* Blue text (repeat) */
+    --quiz-category1-text-dark: 210 100% 21%;   /* Blue text - more saturated */
+    --quiz-category2-text-dark: 250 90% 21%;    /* Deep Purple text - more saturated */
+    --quiz-category3-text-dark: 189 100% 15%;   /* Cyan text (already max) */
+    --quiz-category4-text-dark: 162 100% 9%;    /* Teal text (already max) */
+    --quiz-category5-text-dark: 320 68% 24%;    /* Rosa Pink text - more saturated */
+    --quiz-category6-text-dark: 210 100% 21%;   /* Blue text (repeat) - more saturated */
     
     /* Legacy category colors - keeping for backward compatibility */
     --quiz-werte-bg: 266 100% 51%;           /* #7004FF */
