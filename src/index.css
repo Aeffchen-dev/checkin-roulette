@@ -62,13 +62,13 @@ All colors MUST be HSL.
     --quiz-category6-bg: 166 80% 69%;        /* #72F1C0 - mint green */
     --quiz-category6-text: 0 0% 0%;          /* Black text */
     
-    /* Pastel variants for card backgrounds (5% lighter than original) */
-    --quiz-category1-bg-pastel: 241 100% 55%;   /* Blue pastel - 5% lighter */
-    --quiz-category2-bg-pastel: 0 100% 55%;     /* Red pastel - 5% lighter */
-    --quiz-category3-bg-pastel: 196 100% 55%;   /* Cyan pastel - 5% lighter */
-    --quiz-category4-bg-pastel: 318 86% 80%;    /* Pink pastel - 5% lighter */
-    --quiz-category5-bg-pastel: 60 100% 76%;    /* Yellow pastel - 5% lighter */
-    --quiz-category6-bg-pastel: 166 80% 74%;    /* Mint pastel - 5% lighter */
+    /* Pastel variants for card backgrounds (10% lighter than original) */
+    --quiz-category1-bg-pastel: 241 100% 60%;   /* Blue pastel - 10% lighter */
+    --quiz-category2-bg-pastel: 0 100% 60%;     /* Red pastel - 10% lighter */
+    --quiz-category3-bg-pastel: 196 100% 60%;   /* Cyan pastel - 10% lighter */
+    --quiz-category4-bg-pastel: 318 86% 85%;    /* Pink pastel - 10% lighter */
+    --quiz-category5-bg-pastel: 60 100% 81%;    /* Yellow pastel - 10% lighter */
+    --quiz-category6-bg-pastel: 166 80% 79%;    /* Mint pastel - 10% lighter */
     
     /* Dark variants for text (almost black with color tint) */
     --quiz-category1-text-dark: 241 80% 12%;    /* Dark blue */
