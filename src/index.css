@@ -59,8 +59,8 @@ All colors MUST be HSL.
     --quiz-category4-text: 162 100% 6%;      /* Teal text - darker */
     --quiz-category5-bg: 340 75% 75%;        /* Red-purple category instead of pink */
     --quiz-category5-text: 340 85% 15%;      /* Red-purple text - dark */
-    --quiz-category6-bg: 199 100% 64%;       /* Blue category darker (repeat) - more saturated */
-    --quiz-category6-text: 210 100% 18%;     /* Blue text (repeat) - darker */
+    --quiz-category6-bg: 340 70% 80%;       /* Vision - Piglet pink with more red */
+    --quiz-category6-text: 340 80% 20%;     /* Vision text - Dark red-pink */
     
     /* Pastel variants for card backgrounds */
     --quiz-category1-bg-pastel: 199 100% 85%;   /* Blue card - more saturated */
@@ -68,7 +68,7 @@ All colors MUST be HSL.
     --quiz-category3-bg-pastel: 186 75% 82%;    /* Cyan card - more saturated */
     --quiz-category4-bg-pastel: 162 100% 83%;   /* Teal card (already max) */
     --quiz-category5-bg-pastel: 340 60% 90%;    /* Red-purple card background */
-    --quiz-category6-bg-pastel: 199 100% 85%;   /* Blue card (repeat) - more saturated */
+    --quiz-category6-bg-pastel: 340 50% 95%;   /* Vision card - Light piglet pink */
     
     /* Dark variants for text */
     --quiz-category1-text-dark: 210 100% 18%;   /* Blue text - darker */
@@ -76,7 +76,7 @@ All colors MUST be HSL.
     --quiz-category3-text-dark: 189 100% 12%;   /* Cyan text - darker */
     --quiz-category4-text-dark: 162 100% 6%;    /* Teal text - darker */
     --quiz-category5-text-dark: 340 85% 15%;    /* Red-purple text - dark */
-    --quiz-category6-text-dark: 210 100% 18%;   /* Blue text (repeat) - darker */
+    --quiz-category6-text-dark: 340 80% 20%;    /* Vision text - Dark red-pink */
     
     /* Legacy category colors - keeping for backward compatibility */
     --quiz-werte-bg: 266 100% 51%;           /* #7004FF */
