@@ -98,37 +98,37 @@ export function QuizCard({ question, onSwipeLeft, onSwipeRight, animationClass =
     const colorVars = {
       1: { 
         stripBg: 'hsl(var(--quiz-category1-bg))', 
-        stripText: 'white',
+        stripText: 'hsl(var(--quiz-category1-text-dark))',
         cardBg: 'hsl(var(--quiz-category1-bg-pastel))',
         textColor: 'hsl(var(--quiz-category1-text-dark))'
       },
       2: { 
         stripBg: 'hsl(var(--quiz-category2-bg))', 
-        stripText: 'white',
+        stripText: 'hsl(var(--quiz-category2-text-dark))',
         cardBg: 'hsl(var(--quiz-category2-bg-pastel))',
         textColor: 'hsl(var(--quiz-category2-text-dark))'
       },
       3: { 
         stripBg: 'hsl(var(--quiz-category3-bg))', 
-        stripText: 'black',
+        stripText: 'hsl(var(--quiz-category3-text-dark))',
         cardBg: 'hsl(var(--quiz-category3-bg-pastel))',
         textColor: 'hsl(var(--quiz-category3-text-dark))'
       },
       4: { 
         stripBg: 'hsl(var(--quiz-category4-bg))', 
-        stripText: 'black',
+        stripText: 'hsl(var(--quiz-category4-text-dark))',
         cardBg: 'hsl(var(--quiz-category4-bg-pastel))',
         textColor: 'hsl(var(--quiz-category4-text-dark))'
       },
       5: { 
         stripBg: 'hsl(var(--quiz-category5-bg))', 
-        stripText: 'black',
+        stripText: 'hsl(var(--quiz-category5-text-dark))',
         cardBg: 'hsl(var(--quiz-category5-bg-pastel))',
         textColor: 'hsl(var(--quiz-category5-text-dark))'
       },
       6: { 
         stripBg: 'hsl(var(--quiz-category6-bg))', 
-        stripText: 'black',
+        stripText: 'hsl(var(--quiz-category6-text-dark))',
         cardBg: 'hsl(var(--quiz-category6-bg-pastel))',
         textColor: 'hsl(var(--quiz-category6-text-dark))'
       },
