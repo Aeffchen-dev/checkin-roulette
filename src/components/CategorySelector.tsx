@@ -95,7 +95,12 @@ export function CategorySelector({
                 >
                   <span 
                     className="font-bold text-sm uppercase tracking-wide"
-                    style={{ color: categoryColors.textColor }}
+                    style={{ 
+                      color: categoryColors.textColor,
+                      fontFamily: 'Kokoro, serif',
+                      fontWeight: 'bold',
+                      fontStyle: 'italic'
+                    }}
                   >
                     {category}
                   </span>
@@ -112,8 +117,8 @@ export function CategorySelector({
                       <div
                         className="flex items-center justify-center"
                         style={{ 
-                          width: '32px', 
-                          height: '32px', 
+                          width: '48px', 
+                          height: '48px', 
                           borderRadius: '999px',
                           border: isSelected ? 'none' : `2px solid ${categoryColors.textColor}`,
                           backgroundColor: isSelected ? categoryColors.stripColor : 'transparent'
@@ -122,8 +127,8 @@ export function CategorySelector({
                         {isSelected && (
                           <Check 
                             style={{ 
-                              width: '18px', 
-                              height: '18px',
+                              width: '24px', 
+                              height: '24px',
                               color: categoryColors.textColor
                             }}
                             strokeWidth={2}
