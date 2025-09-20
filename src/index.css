@@ -89,8 +89,8 @@ All colors MUST be HSL.
     --quiz-motivation-text: 0 0% 0%;
     --quiz-grenzen-bg: 185 72% 53%;          /* #28C8E4 */
     --quiz-grenzen-text: 0 0% 98%;
-    --quiz-vision-bg: 320 85% 75%;           /* Pink */
-    --quiz-vision-text: 0 0% 0%;
+    --quiz-vision-bg: 320 85% 85%;           /* #FAC6DA */
+    --quiz-vision-text: 320 60% 23%;             /* #61163F */
     --quiz-no-go-bg: 266 100% 51%;           /* #7004FF */
     --quiz-no-go-text: 0 0% 98%;
     --quiz-risiko-bg: 241 100% 50%;          /* #0500FF */
