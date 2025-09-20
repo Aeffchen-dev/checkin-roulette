@@ -89,9 +89,9 @@ All colors MUST be HSL.
     --quiz-motivation-text: 0 0% 0%;
     --quiz-grenzen-bg: 185 72% 53%;          /* #28C8E4 */
     --quiz-grenzen-text: 0 0% 98%;
-    --quiz-vision-bg: 320 50% 76%;           /* #FAC6DA */
-    --quiz-vision-text: 320 60% 23%;         /* #61163F */
-    --quiz-vision-card-bg: 320 50% 93%;      /* #FCE4EC */
+    --quiz-vision-bg: 340 70% 80%;           /* Piglet pink with more red */
+    --quiz-vision-text: 340 80% 20%;         /* Dark red-pink text */
+    --quiz-vision-card-bg: 340 50% 95%;      /* Light piglet pink background */
     --quiz-no-go-bg: 266 100% 51%;           /* #7004FF */
     --quiz-no-go-text: 0 0% 98%;
     --quiz-risiko-bg: 241 100% 50%;          /* #0500FF */
