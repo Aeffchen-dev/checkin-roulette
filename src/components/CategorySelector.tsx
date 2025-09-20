@@ -97,11 +97,12 @@ export function CategorySelector({
                   onClick={() => handleCategoryToggle(category)}
                 >
                   <span 
-                    className="font-bold text-xl tracking-wide"
+                    className="font-bold text-xl"
                     style={{ 
                       color: categoryColors.textColor,
                       fontFamily: 'Kokoro, serif',
-                      fontWeight: 'bold'
+                      fontWeight: 'bold',
+                      letterSpacing: '0'
                     }}
                   >
                     {category}
