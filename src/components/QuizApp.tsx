@@ -349,7 +349,7 @@ export function QuizApp() {
                 <div 
                   className={`absolute top-1/2 w-5 h-5 flex items-center justify-center pointer-events-none transition-transform duration-200 ${isMixedMode ? 'translate-x-5' : 'translate-x-0'}`}
                   style={{
-                    transform: `translate(${isMixedMode ? '20px' : '0px'}, -50%)`,
+                    transform: `translate(${isMixedMode ? '20px' : '0px'}, calc(-50% - 1px))`,
                     left: '2px'
                   }}
                 >
