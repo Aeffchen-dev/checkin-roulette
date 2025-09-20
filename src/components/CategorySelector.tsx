@@ -87,7 +87,7 @@ export function CategorySelector({
               {categories.map((category, index) => {
               const isSelected = tempSelection.includes(category);
               const categoryColors = getCategoryColors(index);
-              const itemWidth = getRandomWidth(index);
+              const itemWidth = isSelected ? getRandomWidth(index) : 80; // Same width when inactive
               
               return (
                 <div 
