@@ -87,14 +87,17 @@ export function CategorySelector({
                   key={category}
                   className="flex items-center justify-between cursor-pointer"
                   style={{ 
-                    borderRadius: '999px',
+                    borderTopLeftRadius: '8px',
+                    borderBottomLeftRadius: '8px',
+                    borderTopRightRadius: '999px',
+                    borderBottomRightRadius: '999px',
                     backgroundColor: categoryColors.cardBgColor,
-                    padding: '8px 8px 8px 24px'
+                    padding: '8px 8px 8px 32px'
                   }}
                   onClick={() => handleCategoryToggle(category)}
                 >
                   <span 
-                    className="font-bold text-lg tracking-wide"
+                    className="font-bold text-xl tracking-wide"
                     style={{ 
                       color: categoryColors.textColor,
                       fontFamily: 'Kokoro, serif',
