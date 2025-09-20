@@ -85,10 +85,9 @@ export function CategorySelector({
               return (
                 <div 
                   key={category}
-                  className="flex items-center justify-between p-4 border-l-8 cursor-pointer"
+                  className="flex items-center justify-between p-4 cursor-pointer"
                   style={{ 
                     borderRadius: '999px',
-                    borderLeftColor: categoryColors.stripColor,
                     backgroundColor: categoryColors.cardBgColor
                   }}
                   onClick={() => handleCategoryToggle(category)}
@@ -115,7 +114,7 @@ export function CategorySelector({
                           width: '32px', 
                           height: '32px', 
                           borderRadius: '999px',
-                          border: `2px solid ${categoryColors.textColor}`,
+                          border: isSelected ? 'none' : `2px solid ${categoryColors.textColor}`,
                           backgroundColor: isSelected ? categoryColors.stripColor : 'transparent'
                         }}
                       >
