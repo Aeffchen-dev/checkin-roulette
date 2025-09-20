@@ -94,7 +94,8 @@ export function CategorySelector({
                     backgroundColor: categoryColors.cardBgColor,
                     padding: '8px 8px 8px 32px',
                     transformOrigin: 'left center',
-                    transform: isSelected ? 'scaleX(1.08)' : 'scaleX(1)'
+                    transform: isSelected ? 'scaleX(1.08)' : 'scaleX(1)',
+                    width: '80%'
                   }}
                   onClick={() => handleCategoryToggle(category)}
                 >
