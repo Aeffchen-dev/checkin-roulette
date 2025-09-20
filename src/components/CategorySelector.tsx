@@ -83,7 +83,7 @@ export function CategorySelector({
 
           {/* Categories List */}
           <ScrollArea className="flex-1 pt-20 min-h-0">
-            <div className="px-4 space-y-2 pb-6">
+            <div className="px-4 space-y-4 pb-6">
               {categories.map((category, index) => {
               const isSelected = tempSelection.includes(category);
               const categoryColors = getCategoryColors(index);
@@ -128,14 +128,15 @@ export function CategorySelector({
                         setTempSelection(newCategories);
                       }}
                     >
-                      <div
+                       <div
                         className="flex items-center justify-center"
                         style={{ 
                           width: '36px', 
                           height: '36px', 
                           borderRadius: '999px',
                           border: isSelected ? 'none' : `2px solid ${categoryColors.textColor}`,
-                          backgroundColor: isSelected ? categoryColors.stripColor : 'transparent'
+                          backgroundColor: isSelected ? categoryColors.stripColor : 'transparent',
+                          transform: isSelected ? 'scaleX(0.893)' : 'scaleX(1)' // Counter-transform to maintain 1:1 ratio
                         }}
                       >
                         {isSelected && (
