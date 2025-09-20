@@ -55,8 +55,8 @@ All colors MUST be HSL.
     --quiz-category2-text: 250 90% 15%;      /* Deep Purple text - darker */
     --quiz-category3-bg: 186 75% 61%;        /* Cyan category - slightly darker */
     --quiz-category3-text: 189 100% 12%;     /* Cyan text - darker */
-    --quiz-category4-bg: 162 80% 65%;        /* Teal category - more saturated */
-    --quiz-category4-text: 162 100% 6%;      /* Teal text - darker */
+    --quiz-category4-bg: 320 75% 75%;        /* Pink category instead of teal */
+    --quiz-category4-text: 320 85% 15%;      /* Pink text - dark */
     --quiz-category5-bg: 340 75% 75%;        /* Red-purple category instead of pink */
     --quiz-category5-text: 340 85% 15%;      /* Red-purple text - dark */
     --quiz-category6-bg: 199 100% 64%;       /* Blue category darker (repeat) - more saturated */
@@ -66,7 +66,7 @@ All colors MUST be HSL.
     --quiz-category1-bg-pastel: 199 100% 85%;   /* Blue card - more saturated */
     --quiz-category2-bg-pastel: 266 65% 84%;    /* Deep Purple card - more saturated */
     --quiz-category3-bg-pastel: 186 75% 82%;    /* Cyan card - more saturated */
-    --quiz-category4-bg-pastel: 162 100% 83%;   /* Teal card (already max) */
+    --quiz-category4-bg-pastel: 320 60% 90%;    /* Pink card background */
     --quiz-category5-bg-pastel: 340 60% 90%;    /* Red-purple card background */
     --quiz-category6-bg-pastel: 199 100% 85%;   /* Blue card (repeat) - more saturated */
     
@@ -74,7 +74,7 @@ All colors MUST be HSL.
     --quiz-category1-text-dark: 210 100% 18%;   /* Blue text - darker */
     --quiz-category2-text-dark: 250 90% 15%;    /* Deep Purple text - darker */
     --quiz-category3-text-dark: 189 100% 12%;   /* Cyan text - darker */
-    --quiz-category4-text-dark: 162 100% 6%;    /* Teal text - darker */
+    --quiz-category4-text-dark: 320 85% 15%;    /* Pink text - dark */
     --quiz-category5-text-dark: 340 85% 15%;    /* Red-purple text - dark */
     --quiz-category6-text-dark: 210 100% 18%;   /* Blue text (repeat) - darker */
     
