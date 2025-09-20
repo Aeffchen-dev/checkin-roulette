@@ -26,6 +26,14 @@ export function CategorySelector({
     setTempSelection(selectedCategories);
   }, [selectedCategories]);
 
+  // Generate random width for each category
+  const getRandomWidth = (index: number) => {
+    // Use index as seed for consistent random values across renders
+    const seed = (index + 1) * 137; // Simple pseudo-random
+    const random = (seed % 100) / 100;
+    return 77 + (random * 6); // 77% to 83% (80% ±3%)
+  };
+
   const getCategoryColors = (index: number) => {
     const colorIndex = (index % 6) + 1;
     return {
@@ -60,20 +68,18 @@ export function CategorySelector({
           Wählen Sie die Kategorien aus, die Sie sehen möchten
         </DialogDescription>
         <div className="flex flex-col h-full relative w-full max-h-full min-h-0">
-          {/* Close Button */}
-          <button
-            onClick={handleClose}
-            className="absolute right-6 top-6 z-10 text-white hover:bg-white/10 p-2 rounded-full transition-colors"
-          >
-            <X className="h-6 w-6" />
-          </button>
-
           {/* Header */}
-          <DialogHeader className="absolute top-6 left-6 z-10">
-            <DialogTitle className="text-white text-xl font-normal">
+          <div className="absolute top-6 left-6 right-6 z-10 flex items-baseline justify-between">
+            <h2 className="text-white text-xl font-normal">
               Kategorien wählen
-            </DialogTitle>
-          </DialogHeader>
+            </h2>
+            <button
+              onClick={handleClose}
+              className="text-white hover:bg-white/10 p-2 rounded-full transition-colors"
+            >
+              <X className="h-6 w-6" />
+            </button>
+          </div>
 
           {/* Categories List */}
           <ScrollArea className="flex-1 pt-20 min-h-0">
@@ -81,6 +87,7 @@ export function CategorySelector({
               {categories.map((category, index) => {
               const isSelected = tempSelection.includes(category);
               const categoryColors = getCategoryColors(index);
+              const itemWidth = getRandomWidth(index);
               
               return (
                 <div 
@@ -95,7 +102,7 @@ export function CategorySelector({
                     padding: '8px 8px 8px 32px',
                     transformOrigin: 'left center',
                     transform: isSelected ? 'scaleX(1.12)' : 'scaleX(1)',
-                    width: '80%'
+                    width: `${itemWidth}%`
                   }}
                   onClick={() => handleCategoryToggle(category)}
                 >
