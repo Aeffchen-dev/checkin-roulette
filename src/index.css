@@ -193,6 +193,36 @@ All colors MUST be HSL.
   }
 }
 
+/* Eyes blinking animation */
+@keyframes eyesBlink {
+  0%, 90%, 100% {
+    transform: scaleY(1);
+  }
+  95% {
+    transform: scaleY(0.1);
+  }
+}
+
+/* Eyes look left animation */
+@keyframes eyesLookLeft {
+  0%, 100% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(-1px);
+  }
+}
+
+/* Eyes look right animation */
+@keyframes eyesLookRight {
+  0%, 100% {
+    transform: translateX(0px);
+  }
+  50% {
+    transform: translateX(1px);
+  }
+}
+
 /* Bounce right animation */
 @keyframes bounce-right {
   0% {
@@ -211,6 +241,15 @@ All colors MUST be HSL.
 
 .animate-bounce-right {
   animation: bounce-right 0.4s ease-out;
+}
+
+/* Eyes animation classes */
+.eyes-inactive {
+  animation: eyesBlink 3s infinite, eyesLookLeft 2s infinite ease-in-out;
+}
+
+.eyes-active {
+  animation: eyesBlink 4s infinite, eyesLookRight 2.5s infinite ease-in-out;
 }
 
 @layer base {

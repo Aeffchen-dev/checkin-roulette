@@ -348,7 +348,16 @@ export function QuizApp() {
                     left: '2px'
                   }}
                 >
-                  <span className="text-xs" style={{ fontSize: '0.64rem' }}>👀</span>
+                  <span 
+                    className={`text-xs ${isMixedMode ? 'eyes-active' : 'eyes-inactive'}`} 
+                    style={{ 
+                      fontSize: '0.64rem',
+                      display: 'inline-block',
+                      transformOrigin: 'center'
+                    }}
+                  >
+                    👀
+                  </span>
                 </div>
               </div>
               <span 
