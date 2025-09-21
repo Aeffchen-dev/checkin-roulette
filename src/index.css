@@ -47,48 +47,36 @@ All colors MUST be HSL.
     --quiz-background: 0 0% 7%;
     --quiz-surface: 0 0% 12%;
     
-    /* Category-specific colors using actual category names */
-    /* Reflexion category */
-    --quiz-reflexion-bg: 199 100% 64%;       /* Blue category */
-    --quiz-reflexion-text: 210 100% 18%;     /* Blue text */
-    --quiz-reflexion-bg-pastel: 199 100% 85%;   /* Blue card */
-    --quiz-reflexion-text-dark: 210 100% 18%;   /* Blue text - darker */
+    /* Category-specific colors using numbered system */
+    /* Original colors for category strips */
+    --quiz-category1-bg: 199 100% 64%;       /* Blue category - Reflexion */
+    --quiz-category1-text: 210 100% 18%;     /* Blue text */
+    --quiz-category2-bg: 276 65% 76%;        /* Deep Purple category - FUCK */
+    --quiz-category2-text: 250 90% 15%;      /* Deep Purple text */
+    --quiz-category3-bg: 186 75% 61%;        /* Cyan category - DIRTY */
+    --quiz-category3-text: 189 100% 12%;     /* Cyan text */
+    --quiz-category4-bg: 162 80% 65%;        /* Teal category - FAIL */
+    --quiz-category4-text: 162 100% 6%;      /* Teal text */
+    --quiz-category5-bg: 340 75% 75%;        /* Red-purple category - WILD */
+    --quiz-category5-text: 340 85% 15%;      /* Red-purple text */
+    --quiz-category6-bg: 340 70% 80%;        /* Vision pink - CRAZY */
+    --quiz-category6-text: 340 80% 20%;      /* Vision text */
     
-    /* FUCK category */
-    --quiz-fuck-bg: 276 65% 76%;        /* Deep Purple category */
-    --quiz-fuck-text: 250 90% 15%;      /* Deep Purple text */
-    --quiz-fuck-bg-pastel: 266 65% 84%;    /* Deep Purple card */
-    --quiz-fuck-text-dark: 250 90% 15%;    /* Deep Purple text - darker */
+    /* Pastel variants for card backgrounds */
+    --quiz-category1-bg-pastel: 199 100% 85%;   /* Blue card - Reflexion */
+    --quiz-category2-bg-pastel: 266 65% 84%;    /* Deep Purple card - FUCK */
+    --quiz-category3-bg-pastel: 186 75% 82%;    /* Cyan card - DIRTY */
+    --quiz-category4-bg-pastel: 162 100% 83%;   /* Teal card - FAIL */
+    --quiz-category5-bg-pastel: 340 60% 90%;    /* Red-purple card - WILD */
+    --quiz-category6-bg-pastel: 340 50% 95%;    /* Vision card - CRAZY */
     
-    /* DIRTY category */
-    --quiz-dirty-bg: 186 75% 61%;        /* Cyan category */
-    --quiz-dirty-text: 189 100% 12%;     /* Cyan text */
-    --quiz-dirty-bg-pastel: 186 75% 82%;    /* Cyan card */
-    --quiz-dirty-text-dark: 189 100% 12%;   /* Cyan text - darker */
-    
-    /* FAIL category */
-    --quiz-fail-bg: 162 80% 65%;        /* Teal category */
-    --quiz-fail-text: 162 100% 6%;      /* Teal text */
-    --quiz-fail-bg-pastel: 162 100% 83%;   /* Teal card */
-    --quiz-fail-text-dark: 162 100% 6%;    /* Teal text - darker */
-    
-    /* WILD category */
-    --quiz-wild-bg: 340 75% 75%;        /* Red-purple category */
-    --quiz-wild-text: 340 85% 15%;      /* Red-purple text */
-    --quiz-wild-bg-pastel: 340 60% 90%;    /* Red-purple card */
-    --quiz-wild-text-dark: 340 85% 15%;    /* Red-purple text - dark */
-    
-    /* CRAZY category */
-    --quiz-crazy-bg: 340 70% 80%;       /* Vision - Piglet pink with more red */
-    --quiz-crazy-text: 340 80% 20%;     /* Vision text - Dark red-pink */
-    --quiz-crazy-bg-pastel: 340 50% 95%;      /* Light piglet pink background */
-    --quiz-crazy-text-dark: 340 80% 20%;    /* Vision text - Dark red-pink */
-    
-    /* TOYS category */  
-    --quiz-toys-bg: 60 100% 71%;        /* Yellow category */
-    --quiz-toys-text: 0 0% 0%;          /* Black text */
-    --quiz-toys-bg-pastel: 60 100% 85%;    /* Light yellow card */
-    --quiz-toys-text-dark: 0 0% 0%;        /* Black text */
+    /* Dark variants for text */
+    --quiz-category1-text-dark: 210 100% 18%;   /* Blue text - Reflexion */
+    --quiz-category2-text-dark: 250 90% 15%;    /* Deep Purple text - FUCK */
+    --quiz-category3-text-dark: 189 100% 12%;   /* Cyan text - DIRTY */
+    --quiz-category4-text-dark: 162 100% 6%;    /* Teal text - FAIL */
+    --quiz-category5-text-dark: 340 85% 15%;    /* Red-purple text - WILD */
+    --quiz-category6-text-dark: 340 80% 20%;    /* Vision text - CRAZY */
     
     /* Legacy category colors - keeping for backward compatibility with normalized names */
     --quiz-werte-bg: 266 100% 51%;           /* #7004FF */

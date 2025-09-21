@@ -35,12 +35,23 @@ export function CategorySelector({
   };
 
   const getCategoryColors = (index: number) => {
-    // Normalize category name for CSS variable
-    const normalizedName = categories[index]?.toLowerCase() || 'reflexion';
+    // Map category names to numbers (preserve original color assignments)
+    const categoryMap: { [key: string]: number } = {
+      'Reflexion': 1,
+      'FUCK': 2, 
+      'DIRTY': 3,
+      'FAIL': 4,
+      'WILD': 5,
+      'CRAZY': 6,
+      'TOYS': 1 // Default to category 1 for new categories
+    };
+    
+    const colorIndex = categoryMap[categories[index]] || ((index % 6) + 1);
+    
     return {
-      stripColor: `hsl(var(--quiz-${normalizedName}-bg))`,
-      cardBgColor: `hsl(var(--quiz-${normalizedName}-bg-pastel))`,
-      textColor: `hsl(var(--quiz-${normalizedName}-text-dark))`
+      stripColor: `hsl(var(--quiz-category${colorIndex}-bg))`,
+      cardBgColor: `hsl(var(--quiz-category${colorIndex}-bg-pastel))`,
+      textColor: `hsl(var(--quiz-category${colorIndex}-text-dark))`
     };
   };
 

@@ -89,16 +89,26 @@ export function QuizCard({ question, onSwipeLeft, onSwipeRight, animationClass =
     };
   }, [question.question]);
 
-  // Get category-specific colors using category name directly
+  // Get category-specific colors using category name mapped to numbers
   const getCategoryColors = (categoryName: string) => {
-    // Normalize category name for CSS variable
-    const normalizedName = categoryName.toLowerCase();
+    // Map category names to numbers (preserve original color assignments)
+    const categoryMap: { [key: string]: number } = {
+      'Reflexion': 1,
+      'FUCK': 2, 
+      'DIRTY': 3,
+      'FAIL': 4,
+      'WILD': 5,
+      'CRAZY': 6,
+      'TOYS': 1 // Default to category 1 for new categories
+    };
+    
+    const colorIndex = categoryMap[categoryName] || 1;
     
     return {
-      stripBg: `hsl(var(--quiz-${normalizedName}-bg))`,
-      stripText: `hsl(var(--quiz-${normalizedName}-text-dark))`,
-      cardBg: `hsl(var(--quiz-${normalizedName}-bg-pastel))`,
-      textColor: `hsl(var(--quiz-${normalizedName}-text-dark))`
+      stripBg: `hsl(var(--quiz-category${colorIndex}-bg))`,
+      stripText: `hsl(var(--quiz-category${colorIndex}-text-dark))`,
+      cardBg: `hsl(var(--quiz-category${colorIndex}-bg-pastel))`,
+      textColor: `hsl(var(--quiz-category${colorIndex}-text-dark))`
     };
   };
 
