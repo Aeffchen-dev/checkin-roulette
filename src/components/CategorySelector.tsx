@@ -153,14 +153,14 @@ export function CategorySelector({
                             }}
                           >
                             <path
-                              d="m9 12 2 2 4-4"
+                              d="m8 12 3 3 5-5"
                               stroke="currentColor"
                               strokeWidth={1.5}
                               strokeLinecap="round"
                               strokeLinejoin="round"
                               style={{
-                                strokeDasharray: '12',
-                                strokeDashoffset: '12',
+                                strokeDasharray: '14',
+                                strokeDashoffset: '14',
                                 animation: 'drawCheckmark 0.3s ease-out forwards'
                               }}
                             />
