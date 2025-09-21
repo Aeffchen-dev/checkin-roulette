@@ -69,6 +69,12 @@ export function QuizApp() {
   const [slides, setSlides] = useState<SlideItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [categorySelectorOpen, setCategorySelectorOpen] = useState(false);
+  const [isPulsing, setIsPulsing] = useState(false);
+
+  const handleTitleClick = () => {
+    setIsPulsing(true);
+    setTimeout(() => setIsPulsing(false), 600); // Animation duration
+  };
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [availableCategories, setAvailableCategories] = useState<string[]>([]);
   const [isMixedMode, setIsMixedMode] = useState(true);
@@ -326,7 +332,13 @@ export function QuizApp() {
       {/* App Header */}
       <div className="bg-black mt-4 flex items-center" style={{ paddingTop: 'env(safe-area-inset-top, 0)' }}>
         <div className="flex justify-between items-baseline px-4 w-full">
-          <h1 className="text-white font-kokoro text-2xl" style={{ fontFamily: 'Kokoro, serif', fontWeight: 'bold', fontStyle: 'italic' }}>Checkin Roulette</h1>
+          <h1 
+            className={`text-white font-kokoro text-2xl cursor-pointer transition-transform select-none ${isPulsing ? 'animate-pulse-title' : ''}`}
+            style={{ fontFamily: 'Kokoro, serif', fontWeight: 'bold', fontStyle: 'italic' }}
+            onClick={handleTitleClick}
+          >
+            Checkin Roulette
+          </h1>
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-1">
               <span 
