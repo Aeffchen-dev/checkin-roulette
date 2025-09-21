@@ -251,8 +251,8 @@ All colors MUST be HSL.
 }
 
 .eye {
-  width: 6px;
-  height: 10px;
+  width: 5.5px;
+  height: 9.5px;
   background-color: white;
   border-radius: 50%;
   position: relative;
@@ -262,8 +262,8 @@ All colors MUST be HSL.
 }
 
 .pupil {
-  width: 4px;
-  height: 4px;
+  width: 3.5px;
+  height: 3.5px;
   background-color: black;
   border-radius: 50%;
   transition: transform 0.3s ease-in-out;
