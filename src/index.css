@@ -75,7 +75,7 @@ All colors MUST be HSL.
     /* Visions - Rosa ohne Orange-Stich */
     --quiz-visions-bg: 315 80% 85%;       /* Reineres Rosa für Kategorie */
     --quiz-visions-text: 315 90% 15%;     /* Dunkles Rosa für besseren Kontrast */
-    --quiz-visions-bg-pastel: 315 80% 90%;   /* Dunkles Rosa aufgehellt für Karten-Hintergrund */
+    --quiz-visions-bg-pastel: 315 80% 92%;   /* Noch etwas heller für Karten-Hintergrund */
     --quiz-visions-text-dark: 315 90% 15%;    /* Dunkles Rosa für Text */
     
     /* Legacy category colors - keeping for backward compatibility */
