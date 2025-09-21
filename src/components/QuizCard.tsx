@@ -91,7 +91,8 @@ export function QuizCard({ question, onSwipeLeft, onSwipeRight, animationClass =
 
   // Get category-specific colors using category name
   const getCategoryColors = (categoryName: string) => {
-    const normalizedName = categoryName.toLowerCase();
+    // Normalize category name: lowercase and replace spaces with hyphens
+    const normalizedName = categoryName.toLowerCase().replace(/\s+/g, '-');
     return {
       stripBg: `hsl(var(--quiz-${normalizedName}-bg))`,
       stripText: `hsl(var(--quiz-${normalizedName}-text-dark))`,

@@ -47,48 +47,36 @@ All colors MUST be HSL.
     --quiz-background: 0 0% 7%;
     --quiz-surface: 0 0% 12%;
     
-    /* Category-specific colors using actual category names */
-    /* Reflexion - Blue */
-    --quiz-reflexion-bg: 199 100% 64%;       /* Blue category darker - more saturated */
-    --quiz-reflexion-text: 210 100% 18%;     /* Blue text - darker */
-    --quiz-reflexion-bg-pastel: 199 100% 85%;   /* Blue card - more saturated */
-    --quiz-reflexion-text-dark: 210 100% 18%;   /* Blue text - darker */
+    /* Category-specific colors using actual category names from Google Sheet */
+    /* From the inside - Blue */
+    --quiz-from-the-inside-bg: 199 100% 64%;       /* Blue category darker - more saturated */
+    --quiz-from-the-inside-text: 210 100% 18%;     /* Blue text - darker */
+    --quiz-from-the-inside-bg-pastel: 199 100% 85%;   /* Blue card - more saturated */
+    --quiz-from-the-inside-text-dark: 210 100% 18%;   /* Blue text - darker */
     
-    /* FUCK - Deep Purple */
-    --quiz-fuck-bg: 276 65% 76%;        /* Deep Purple category - slightly darker */
-    --quiz-fuck-text: 250 90% 15%;      /* Deep Purple text - darker */
-    --quiz-fuck-bg-pastel: 266 65% 84%;    /* Deep Purple card - more saturated */
-    --quiz-fuck-text-dark: 250 90% 15%;    /* Deep Purple text - darker */
+    /* Intimacy - Deep Purple */
+    --quiz-intimacy-bg: 276 65% 76%;        /* Deep Purple category - slightly darker */
+    --quiz-intimacy-text: 250 90% 15%;      /* Deep Purple text - darker */
+    --quiz-intimacy-bg-pastel: 266 65% 84%;    /* Deep Purple card - more saturated */
+    --quiz-intimacy-text-dark: 250 90% 15%;    /* Deep Purple text - darker */
     
-    /* DIRTY - Cyan */
-    --quiz-dirty-bg: 186 75% 61%;        /* Cyan category - slightly darker */
-    --quiz-dirty-text: 189 100% 12%;     /* Cyan text - darker */
-    --quiz-dirty-bg-pastel: 186 75% 82%;    /* Cyan card - more saturated */
-    --quiz-dirty-text-dark: 189 100% 12%;   /* Cyan text - darker */
+    /* Play - Cyan */
+    --quiz-play-bg: 186 75% 61%;        /* Cyan category - slightly darker */
+    --quiz-play-text: 189 100% 12%;     /* Cyan text - darker */
+    --quiz-play-bg-pastel: 186 75% 82%;    /* Cyan card - more saturated */
+    --quiz-play-text-dark: 189 100% 12%;   /* Cyan text - darker */
     
-    /* FAIL - Teal */
-    --quiz-fail-bg: 162 80% 65%;        /* Teal category - more saturated */
-    --quiz-fail-text: 162 100% 6%;      /* Teal text - darker */
-    --quiz-fail-bg-pastel: 162 100% 83%;   /* Teal card (already max) */
-    --quiz-fail-text-dark: 162 100% 6%;    /* Teal text - darker */
+    /* Story of the day - Teal */
+    --quiz-story-of-the-day-bg: 162 80% 65%;        /* Teal category - more saturated */
+    --quiz-story-of-the-day-text: 162 100% 6%;      /* Teal text - darker */
+    --quiz-story-of-the-day-bg-pastel: 162 100% 83%;   /* Teal card (already max) */
+    --quiz-story-of-the-day-text-dark: 162 100% 6%;    /* Teal text - darker */
     
-    /* WILD - Vision Pink */
-    --quiz-wild-bg: 340 70% 80%;       /* Vision - Piglet pink with more red */
-    --quiz-wild-text: 340 80% 20%;     /* Vision text - Dark red-pink */
-    --quiz-wild-bg-pastel: 340 50% 95%;   /* Vision card - Light piglet pink */
-    --quiz-wild-text-dark: 340 80% 20%;    /* Vision text - Dark red-pink */
-    
-    /* CRAZY - Purple variant */
-    --quiz-crazy-bg: 290 70% 75%;       /* Purple variant */
-    --quiz-crazy-text: 290 80% 20%;     /* Purple text - dark */
-    --quiz-crazy-bg-pastel: 290 50% 90%;   /* Purple card - light */
-    --quiz-crazy-text-dark: 290 80% 20%;   /* Purple text - dark */
-    
-    /* TOYS - Yellow-green */
-    --quiz-toys-bg: 60 100% 71%;        /* Yellow-green */
-    --quiz-toys-text: 60 100% 15%;      /* Yellow-green text - dark */
-    --quiz-toys-bg-pastel: 60 80% 85%;     /* Yellow-green card - light */
-    --quiz-toys-text-dark: 60 100% 15%;    /* Yellow-green text - dark */
+    /* Visions - Vision Pink */
+    --quiz-visions-bg: 340 70% 80%;       /* Vision - Piglet pink with more red */
+    --quiz-visions-text: 340 80% 20%;     /* Vision text - Dark red-pink */
+    --quiz-visions-bg-pastel: 340 50% 95%;   /* Vision card - Light piglet pink */
+    --quiz-visions-text-dark: 340 80% 20%;    /* Vision text - Dark red-pink */
     
     /* Legacy category colors - keeping for backward compatibility */
     --quiz-werte-bg: 266 100% 51%;           /* #7004FF */
