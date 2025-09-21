@@ -72,11 +72,11 @@ All colors MUST be HSL.
     --quiz-story-of-the-day-bg-pastel: 162 100% 83%;   /* Teal card (already max) */
     --quiz-story-of-the-day-text-dark: 162 100% 6%;    /* Teal text - darker */
     
-    /* Visions - Rosa mit deinen Hex-Codes */
-    --quiz-visions-bg: 330 75% 87%;       /* #FAC6DA - Medium Rosa für Kategorie */
-    --quiz-visions-text: 0 73% 15%;       /* Dunkler als #661111 für besseren Kontrast */
-    --quiz-visions-bg-pastel: 330 85% 94%;   /* Noch mehr Rosa und heller für Karten-Hintergrund */
-    --quiz-visions-text-dark: 0 73% 15%;    /* Dunkler als #661111 für Text */
+    /* Visions - Rosa ohne Orange-Stich */
+    --quiz-visions-bg: 315 80% 85%;       /* Reineres Rosa für Kategorie */
+    --quiz-visions-text: 315 90% 15%;     /* Dunkles Rosa für besseren Kontrast */
+    --quiz-visions-bg-pastel: 315 85% 94%;   /* Helles reines Rosa für Karten-Hintergrund */
+    --quiz-visions-text-dark: 315 90% 15%;    /* Dunkles Rosa für Text */
     
     /* Legacy category colors - keeping for backward compatibility */
     --quiz-werte-bg: 266 100% 51%;           /* #7004FF */
