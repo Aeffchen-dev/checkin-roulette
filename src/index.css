@@ -76,7 +76,7 @@ All colors MUST be HSL.
     --quiz-visions-bg: 320 75% 70%;       /* Schönes Rosa für Kategorie */
     --quiz-visions-text: 320 90% 20%;     /* Dunkles Rosa für Text */
     --quiz-visions-bg-pastel: 320 60% 90%;   /* Helles Rosa für Karten-Hintergrund */
-    --quiz-visions-text-dark: 320 90% 20%;    /* Dunkles Rosa für Text */
+    --quiz-visions-text-dark: 320 90% 12%;    /* Noch dunkleres Rosa für besseren Kontrast */
     
     /* Legacy category colors - keeping for backward compatibility */
     --quiz-werte-bg: 266 100% 51%;           /* #7004FF */
