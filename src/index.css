@@ -61,6 +61,8 @@ All colors MUST be HSL.
     --quiz-category5-text: 340 85% 15%;      /* Red-purple text */
     --quiz-category6-bg: 340 70% 80%;        /* Vision pink - CRAZY */
     --quiz-category6-text: 340 80% 20%;      /* Vision text */
+    --quiz-category7-bg: 60 100% 71%;        /* Yellow category - TOYS */
+    --quiz-category7-text: 60 100% 20%;      /* Yellow text */
     
     /* Pastel variants for card backgrounds */
     --quiz-category1-bg-pastel: 199 100% 85%;   /* Blue card - Reflexion */
@@ -69,6 +71,7 @@ All colors MUST be HSL.
     --quiz-category4-bg-pastel: 162 100% 83%;   /* Teal card - FAIL */
     --quiz-category5-bg-pastel: 340 60% 90%;    /* Red-purple card - WILD */
     --quiz-category6-bg-pastel: 340 50% 95%;    /* Vision card - CRAZY */
+    --quiz-category7-bg-pastel: 60 100% 85%;    /* Yellow card - TOYS */
     
     /* Dark variants for text */
     --quiz-category1-text-dark: 210 100% 18%;   /* Blue text - Reflexion */
@@ -77,6 +80,7 @@ All colors MUST be HSL.
     --quiz-category4-text-dark: 162 100% 6%;    /* Teal text - FAIL */
     --quiz-category5-text-dark: 340 85% 15%;    /* Red-purple text - WILD */
     --quiz-category6-text-dark: 340 80% 20%;    /* Vision text - CRAZY */
+    --quiz-category7-text-dark: 60 100% 20%;    /* Yellow text - TOYS */
     
     /* Legacy category colors - keeping for backward compatibility with normalized names */
     --quiz-werte-bg: 266 100% 51%;           /* #7004FF */

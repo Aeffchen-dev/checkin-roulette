@@ -91,7 +91,7 @@ export function QuizCard({ question, onSwipeLeft, onSwipeRight, animationClass =
 
   // Get category-specific colors using category name mapped to numbers
   const getCategoryColors = (categoryName: string) => {
-    // Map category names to numbers (preserve original color assignments)
+    // Map category names to numbers (each category gets unique color)
     const categoryMap: { [key: string]: number } = {
       'Reflexion': 1,
       'FUCK': 2, 
@@ -99,7 +99,7 @@ export function QuizCard({ question, onSwipeLeft, onSwipeRight, animationClass =
       'FAIL': 4,
       'WILD': 5,
       'CRAZY': 6,
-      'TOYS': 1 // Default to category 1 for new categories
+      'TOYS': 7
     };
     
     const colorIndex = categoryMap[categoryName] || 1;
