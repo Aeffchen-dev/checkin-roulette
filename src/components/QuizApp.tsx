@@ -89,10 +89,13 @@ export function QuizApp() {
       }
     }
     
-    // Add 2 random flip animations (not overlapping with tilts)
+    // Add 2 random flip animations (not overlapping with tilts, not first letters)
+    const firstLetterIndices = [0, 8]; // "C" and "R" positions
     while (flipIndices.size < 2) {
       const randomIndex = Math.floor(Math.random() * totalLetters);
-      if (titleText[randomIndex] !== ' ' && !tiltIndices.has(randomIndex)) {
+      if (titleText[randomIndex] !== ' ' && 
+          !tiltIndices.has(randomIndex) && 
+          !firstLetterIndices.includes(randomIndex)) {
         flipIndices.add(randomIndex);
       }
     }
