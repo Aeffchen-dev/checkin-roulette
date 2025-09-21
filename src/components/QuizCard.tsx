@@ -12,9 +12,10 @@ interface QuizCardProps {
   onSwipeLeft: () => void;
   onSwipeRight: () => void;
   animationClass?: string;
+  categoryIndex?: number;
 }
 
-export function QuizCard({ question, onSwipeLeft, onSwipeRight, animationClass = '' }: QuizCardProps) {
+export function QuizCard({ question, onSwipeLeft, onSwipeRight, animationClass = '', categoryIndex = 0 }: QuizCardProps) {
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
   const [mouseStart, setMouseStart] = useState<number | null>(null);
@@ -89,30 +90,54 @@ export function QuizCard({ question, onSwipeLeft, onSwipeRight, animationClass =
     };
   }, [question.question]);
 
-  // Get category-specific colors using category name mapped to numbers
-  const getCategoryColors = (categoryName: string) => {
-    // Map category names to numbers (each category gets unique color)
-    const categoryMap: { [key: string]: number } = {
-      'Reflexion': 1,
-      'FUCK': 2, 
-      'DIRTY': 3,
-      'FAIL': 4,
-      'WILD': 5,
-      'CRAZY': 6,
-      'TOYS': 7
+  // Get category-specific colors using cycling system
+  const getCategoryColors = (categoryIndex: number) => {
+    const colorIndex = (categoryIndex % 6) + 1;
+    
+    // CSS custom properties for the colors
+    const colorVars = {
+      1: { 
+        stripBg: 'hsl(var(--quiz-category1-bg))', 
+        stripText: 'hsl(var(--quiz-category1-text-dark))',
+        cardBg: 'hsl(var(--quiz-category1-bg-pastel))',
+        textColor: 'hsl(var(--quiz-category1-text-dark))'
+      },
+      2: { 
+        stripBg: 'hsl(var(--quiz-category2-bg))', 
+        stripText: 'hsl(var(--quiz-category2-text-dark))',
+        cardBg: 'hsl(var(--quiz-category2-bg-pastel))',
+        textColor: 'hsl(var(--quiz-category2-text-dark))'
+      },
+      3: { 
+        stripBg: 'hsl(var(--quiz-category3-bg))', 
+        stripText: 'hsl(var(--quiz-category3-text-dark))',
+        cardBg: 'hsl(var(--quiz-category3-bg-pastel))',
+        textColor: 'hsl(var(--quiz-category3-text-dark))'
+      },
+      4: { 
+        stripBg: 'hsl(var(--quiz-category4-bg))', 
+        stripText: 'hsl(var(--quiz-category4-text-dark))',
+        cardBg: 'hsl(var(--quiz-category4-bg-pastel))',
+        textColor: 'hsl(var(--quiz-category4-text-dark))'
+      },
+      5: { 
+        stripBg: 'hsl(var(--quiz-category5-bg))', 
+        stripText: 'hsl(var(--quiz-category5-text-dark))',
+        cardBg: 'hsl(var(--quiz-category5-bg-pastel))',
+        textColor: 'hsl(var(--quiz-category5-text-dark))'
+      },
+      6: { 
+        stripBg: 'hsl(var(--quiz-category6-bg))', 
+        stripText: 'hsl(var(--quiz-category6-text-dark))',
+        cardBg: 'hsl(var(--quiz-category6-bg-pastel))',
+        textColor: 'hsl(var(--quiz-category6-text-dark))'
+      },
     };
     
-    const colorIndex = categoryMap[categoryName] || 1;
-    
-    return {
-      stripBg: `hsl(var(--quiz-category${colorIndex}-bg))`,
-      stripText: `hsl(var(--quiz-category${colorIndex}-text-dark))`,
-      cardBg: `hsl(var(--quiz-category${colorIndex}-bg-pastel))`,
-      textColor: `hsl(var(--quiz-category${colorIndex}-text-dark))`
-    };
+    return colorVars[colorIndex as keyof typeof colorVars] || colorVars[1];
   };
 
-  const categoryColors = getCategoryColors(question.category);
+  const categoryColors = getCategoryColors(categoryIndex);
 
   const onTouchStart = (e: React.TouchEvent) => {
     setTouchEnd(null);

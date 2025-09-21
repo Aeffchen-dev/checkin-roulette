@@ -35,19 +35,7 @@ export function CategorySelector({
   };
 
   const getCategoryColors = (index: number) => {
-    // Map category names to numbers (each category gets unique color)
-    const categoryMap: { [key: string]: number } = {
-      'Reflexion': 1,
-      'FUCK': 2, 
-      'DIRTY': 3,
-      'FAIL': 4,
-      'WILD': 5,
-      'CRAZY': 6,
-      'TOYS': 7
-    };
-    
-    const colorIndex = categoryMap[categories[index]] || ((index % 7) + 1);
-    
+    const colorIndex = (index % 6) + 1;
     return {
       stripColor: `hsl(var(--quiz-category${colorIndex}-bg))`,
       cardBgColor: `hsl(var(--quiz-category${colorIndex}-bg-pastel))`,

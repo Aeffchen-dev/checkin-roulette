@@ -237,8 +237,13 @@ export function QuizApp() {
         setAllQuestions(shuffledQuestions);
         setIntroSlide(introContent);
         
-        // Extract unique categories
+        // Extract unique categories and assign colors
         const categories = Array.from(new Set(questions.map(q => q.category)));
+        const colorMap: { [category: string]: number } = {};
+        categories.forEach((category, index) => {
+          colorMap[category] = index;
+        });
+        setCategoryColorMap(colorMap);
         setAvailableCategories(categories);
         setSelectedCategories(categories); // Start with all categories selected
       }
@@ -344,11 +349,11 @@ export function QuizApp() {
                 <div 
                   className={`absolute top-1/2 w-5 h-5 flex items-center justify-center pointer-events-none transition-transform duration-200 ${isMixedMode ? 'translate-x-5' : 'translate-x-0'}`}
                   style={{
-                    transform: `translate(${isMixedMode ? '18px' : '-2px'}, calc(-50% - 1px))`,
+                    transform: `translate(${isMixedMode ? '20px' : '0px'}, calc(-50% - 1px))`,
                     left: '2px'
                   }}
                 >
-                  <span className="text-xs" style={{ fontSize: '0.74rem' }}>👀</span>
+                  <span className="text-xs" style={{ fontSize: '0.64rem' }}>👀</span>
                 </div>
               </div>
               <span 
@@ -375,6 +380,7 @@ export function QuizApp() {
                   onSwipeLeft={nextQuestion}
                   onSwipeRight={prevQuestion}
                   animationClass={animationClass}
+                  categoryIndex={categoryColorMap[slides[currentIndex].question!.category] || 0}
                 />
               </div>
             ) : (
@@ -383,6 +389,7 @@ export function QuizApp() {
                 onSwipeLeft={nextQuestion}
                 onSwipeRight={prevQuestion}
                 animationClass={animationClass}
+                categoryIndex={categoryColorMap[slides[currentIndex].question!.category] || 0}
               />
             )
           ) : (
