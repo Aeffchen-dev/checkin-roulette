@@ -251,8 +251,8 @@ All colors MUST be HSL.
 }
 
 .eye {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 10px;
   background-color: white;
   border-radius: 50%;
   position: relative;
