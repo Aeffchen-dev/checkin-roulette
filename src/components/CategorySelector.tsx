@@ -37,6 +37,8 @@ export function CategorySelector({
   const getCategoryColors = (categoryName: string) => {
     // Normalize category name: lowercase and replace spaces with hyphens
     const normalizedName = categoryName.toLowerCase().replace(/\s+/g, '-');
+    console.log('Category:', categoryName, '-> Normalized:', normalizedName);
+    console.log('CSS Variable:', `--quiz-${normalizedName}-bg`);
     return {
       stripColor: `hsl(var(--quiz-${normalizedName}-bg))`,
       cardBgColor: `hsl(var(--quiz-${normalizedName}-bg-pastel))`,
