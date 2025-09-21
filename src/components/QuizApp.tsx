@@ -69,11 +69,47 @@ export function QuizApp() {
   const [slides, setSlides] = useState<SlideItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [categorySelectorOpen, setCategorySelectorOpen] = useState(false);
-  const [isPulsing, setIsPulsing] = useState(false);
+  const [animatingLetters, setAnimatingLetters] = useState<{[key: number]: string}>({});
 
   const handleTitleClick = () => {
-    setIsPulsing(true);
-    setTimeout(() => setIsPulsing(false), 600); // Animation duration
+    const titleText = "Checkin Roulette";
+    const newAnimations: {[key: number]: string} = {};
+    
+    // Get random indices for different animations
+    const totalLetters = titleText.length;
+    const tiltIndices = new Set<number>();
+    const flipIndices = new Set<number>();
+    
+    // Add 3-5 random tilt animations
+    const numTilts = Math.floor(Math.random() * 3) + 3;
+    while (tiltIndices.size < numTilts) {
+      const randomIndex = Math.floor(Math.random() * totalLetters);
+      if (titleText[randomIndex] !== ' ') {
+        tiltIndices.add(randomIndex);
+      }
+    }
+    
+    // Add 2 random flip animations (not overlapping with tilts)
+    while (flipIndices.size < 2) {
+      const randomIndex = Math.floor(Math.random() * totalLetters);
+      if (titleText[randomIndex] !== ' ' && !tiltIndices.has(randomIndex)) {
+        flipIndices.add(randomIndex);
+      }
+    }
+    
+    // Assign animations
+    tiltIndices.forEach(index => {
+      newAnimations[index] = Math.random() > 0.5 ? 'animate-tilt-left' : 'animate-tilt-right';
+    });
+    
+    flipIndices.forEach(index => {
+      newAnimations[index] = 'animate-flip-horizontal';
+    });
+    
+    setAnimatingLetters(newAnimations);
+    
+    // Clear animations after duration
+    setTimeout(() => setAnimatingLetters({}), 800);
   };
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [availableCategories, setAvailableCategories] = useState<string[]>([]);
@@ -333,11 +369,22 @@ export function QuizApp() {
       <div className="bg-black mt-4 flex items-center" style={{ paddingTop: 'env(safe-area-inset-top, 0)' }}>
         <div className="flex justify-between items-baseline px-4 w-full">
           <h1 
-            className={`text-white font-kokoro text-2xl cursor-pointer transition-transform select-none ${isPulsing ? 'animate-pulse-title' : ''}`}
+            className="text-white font-kokoro text-2xl cursor-pointer select-none flex"
             style={{ fontFamily: 'Kokoro, serif', fontWeight: 'bold', fontStyle: 'italic' }}
             onClick={handleTitleClick}
           >
-            Checkin Roulette
+            {"Checkin Roulette".split('').map((letter, index) => (
+              <span
+                key={index}
+                className={`inline-block transition-transform ${animatingLetters[index] || ''}`}
+                style={{ 
+                  transformOrigin: 'center',
+                  minWidth: letter === ' ' ? '0.25em' : 'auto'
+                }}
+              >
+                {letter === ' ' ? '\u00A0' : letter}
+              </span>
+            ))}
           </h1>
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-1">

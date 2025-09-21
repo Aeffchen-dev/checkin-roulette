@@ -193,17 +193,23 @@ All colors MUST be HSL.
   }
 }
 
-/* Gentle pulse animation */
-@keyframes gentlePulse {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-  100% {
-    transform: scale(1);
-  }
+/* Random letter animations */
+@keyframes tiltLeft {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(-5deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes tiltRight {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(5deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@keyframes flipHorizontal {
+  0% { transform: scaleX(1); }
+  50% { transform: scaleX(-1); }
+  100% { transform: scaleX(1); }
 }
 
 /* Eyes blinking animation */
@@ -255,8 +261,16 @@ All colors MUST be HSL.
   animation: bounce-right 0.4s ease-out;
 }
 
-.animate-pulse-title {
-  animation: gentlePulse 0.6s ease-in-out;
+.animate-tilt-left {
+  animation: tiltLeft 0.8s ease-in-out;
+}
+
+.animate-tilt-right {
+  animation: tiltRight 0.8s ease-in-out;
+}
+
+.animate-flip-horizontal {
+  animation: flipHorizontal 0.8s ease-in-out;
 }
 
 /* Custom eyes styles */
