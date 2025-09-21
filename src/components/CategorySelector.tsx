@@ -144,8 +144,8 @@ export function CategorySelector({
                       >
                         {isSelected && (
                           <svg 
-                            width="52" 
-                            height="52" 
+                            width="62" 
+                            height="62" 
                             viewBox="0 0 24 24" 
                             fill="none"
                             style={{ 
