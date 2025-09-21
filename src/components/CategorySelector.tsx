@@ -35,11 +35,12 @@ export function CategorySelector({
   };
 
   const getCategoryColors = (index: number) => {
-    const colorIndex = (index % 6) + 1;
+    // Normalize category name for CSS variable
+    const normalizedName = categories[index]?.toLowerCase() || 'reflexion';
     return {
-      stripColor: `hsl(var(--quiz-category${colorIndex}-bg))`,
-      cardBgColor: `hsl(var(--quiz-category${colorIndex}-bg-pastel))`,
-      textColor: `hsl(var(--quiz-category${colorIndex}-text-dark))`
+      stripColor: `hsl(var(--quiz-${normalizedName}-bg))`,
+      cardBgColor: `hsl(var(--quiz-${normalizedName}-bg-pastel))`,
+      textColor: `hsl(var(--quiz-${normalizedName}-text-dark))`
     };
   };
 

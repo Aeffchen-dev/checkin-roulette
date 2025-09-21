@@ -237,13 +237,8 @@ export function QuizApp() {
         setAllQuestions(shuffledQuestions);
         setIntroSlide(introContent);
         
-        // Extract unique categories and assign colors
+        // Extract unique categories
         const categories = Array.from(new Set(questions.map(q => q.category)));
-        const colorMap: { [category: string]: number } = {};
-        categories.forEach((category, index) => {
-          colorMap[category] = index;
-        });
-        setCategoryColorMap(colorMap);
         setAvailableCategories(categories);
         setSelectedCategories(categories); // Start with all categories selected
       }
@@ -380,7 +375,6 @@ export function QuizApp() {
                   onSwipeLeft={nextQuestion}
                   onSwipeRight={prevQuestion}
                   animationClass={animationClass}
-                  categoryIndex={categoryColorMap[slides[currentIndex].question!.category] || 0}
                 />
               </div>
             ) : (
@@ -389,7 +383,6 @@ export function QuizApp() {
                 onSwipeLeft={nextQuestion}
                 onSwipeRight={prevQuestion}
                 animationClass={animationClass}
-                categoryIndex={categoryColorMap[slides[currentIndex].question!.category] || 0}
               />
             )
           ) : (

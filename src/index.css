@@ -47,63 +47,110 @@ All colors MUST be HSL.
     --quiz-background: 0 0% 7%;
     --quiz-surface: 0 0% 12%;
     
-    /* Category-specific colors using the new provided colors */
-    /* Original colors for category strips */
-    --quiz-category1-bg: 199 100% 64%;       /* Blue category darker - more saturated */
-    --quiz-category1-text: 210 100% 18%;     /* Blue text - darker */
-    --quiz-category2-bg: 276 65% 76%;        /* Deep Purple category - slightly darker */
-    --quiz-category2-text: 250 90% 15%;      /* Deep Purple text - darker */
-    --quiz-category3-bg: 186 75% 61%;        /* Cyan category - slightly darker */
-    --quiz-category3-text: 189 100% 12%;     /* Cyan text - darker */
-    --quiz-category4-bg: 162 80% 65%;        /* Teal category - more saturated */
-    --quiz-category4-text: 162 100% 6%;      /* Teal text - darker */
-    --quiz-category5-bg: 340 75% 75%;        /* Red-purple category instead of pink */
-    --quiz-category5-text: 340 85% 15%;      /* Red-purple text - dark */
-    --quiz-category6-bg: 340 70% 80%;       /* Vision - Piglet pink with more red */
-    --quiz-category6-text: 340 80% 20%;     /* Vision text - Dark red-pink */
+    /* Category-specific colors using actual category names */
+    /* Reflexion category */
+    --quiz-reflexion-bg: 199 100% 64%;       /* Blue category */
+    --quiz-reflexion-text: 210 100% 18%;     /* Blue text */
+    --quiz-reflexion-bg-pastel: 199 100% 85%;   /* Blue card */
+    --quiz-reflexion-text-dark: 210 100% 18%;   /* Blue text - darker */
     
-    /* Pastel variants for card backgrounds */
-    --quiz-category1-bg-pastel: 199 100% 85%;   /* Blue card - more saturated */
-    --quiz-category2-bg-pastel: 266 65% 84%;    /* Deep Purple card - more saturated */
-    --quiz-category3-bg-pastel: 186 75% 82%;    /* Cyan card - more saturated */
-    --quiz-category4-bg-pastel: 162 100% 83%;   /* Teal card (already max) */
-    --quiz-category5-bg-pastel: 340 60% 90%;    /* Red-purple card background */
-    --quiz-category6-bg-pastel: 340 50% 95%;   /* Vision card - Light piglet pink */
+    /* FUCK category */
+    --quiz-fuck-bg: 276 65% 76%;        /* Deep Purple category */
+    --quiz-fuck-text: 250 90% 15%;      /* Deep Purple text */
+    --quiz-fuck-bg-pastel: 266 65% 84%;    /* Deep Purple card */
+    --quiz-fuck-text-dark: 250 90% 15%;    /* Deep Purple text - darker */
     
-    /* Dark variants for text */
-    --quiz-category1-text-dark: 210 100% 18%;   /* Blue text - darker */
-    --quiz-category2-text-dark: 250 90% 15%;    /* Deep Purple text - darker */
-    --quiz-category3-text-dark: 189 100% 12%;   /* Cyan text - darker */
-    --quiz-category4-text-dark: 162 100% 6%;    /* Teal text - darker */
-    --quiz-category5-text-dark: 340 85% 15%;    /* Red-purple text - dark */
-    --quiz-category6-text-dark: 340 80% 20%;    /* Vision text - Dark red-pink */
+    /* DIRTY category */
+    --quiz-dirty-bg: 186 75% 61%;        /* Cyan category */
+    --quiz-dirty-text: 189 100% 12%;     /* Cyan text */
+    --quiz-dirty-bg-pastel: 186 75% 82%;    /* Cyan card */
+    --quiz-dirty-text-dark: 189 100% 12%;   /* Cyan text - darker */
     
-    /* Legacy category colors - keeping for backward compatibility */
+    /* FAIL category */
+    --quiz-fail-bg: 162 80% 65%;        /* Teal category */
+    --quiz-fail-text: 162 100% 6%;      /* Teal text */
+    --quiz-fail-bg-pastel: 162 100% 83%;   /* Teal card */
+    --quiz-fail-text-dark: 162 100% 6%;    /* Teal text - darker */
+    
+    /* WILD category */
+    --quiz-wild-bg: 340 75% 75%;        /* Red-purple category */
+    --quiz-wild-text: 340 85% 15%;      /* Red-purple text */
+    --quiz-wild-bg-pastel: 340 60% 90%;    /* Red-purple card */
+    --quiz-wild-text-dark: 340 85% 15%;    /* Red-purple text - dark */
+    
+    /* CRAZY category */
+    --quiz-crazy-bg: 340 70% 80%;       /* Vision - Piglet pink with more red */
+    --quiz-crazy-text: 340 80% 20%;     /* Vision text - Dark red-pink */
+    --quiz-crazy-bg-pastel: 340 50% 95%;      /* Light piglet pink background */
+    --quiz-crazy-text-dark: 340 80% 20%;    /* Vision text - Dark red-pink */
+    
+    /* TOYS category */  
+    --quiz-toys-bg: 60 100% 71%;        /* Yellow category */
+    --quiz-toys-text: 0 0% 0%;          /* Black text */
+    --quiz-toys-bg-pastel: 60 100% 85%;    /* Light yellow card */
+    --quiz-toys-text-dark: 0 0% 0%;        /* Black text */
+    
+    /* Legacy category colors - keeping for backward compatibility with normalized names */
     --quiz-werte-bg: 266 100% 51%;           /* #7004FF */
     --quiz-werte-text: 0 0% 98%;
+    --quiz-werte-bg-pastel: 266 100% 80%;
+    --quiz-werte-text-dark: 266 100% 15%;
+    
     --quiz-bedürfnisse-bg: 241 100% 50%;     /* #0500FF */
     --quiz-bedürfnisse-text: 0 0% 98%;
+    --quiz-bedürfnisse-bg-pastel: 241 100% 80%;
+    --quiz-bedürfnisse-text-dark: 241 100% 15%;
+    
     --quiz-kommunikation-bg: 318 86% 75%;    /* #FF92EF */
     --quiz-kommunikation-text: 0 0% 0%;
+    --quiz-kommunikation-bg-pastel: 318 86% 90%;
+    --quiz-kommunikation-text-dark: 318 86% 15%;
+    
     --quiz-motivation-bg: 60 100% 71%;       /* #FFFE6F */
     --quiz-motivation-text: 0 0% 0%;
+    --quiz-motivation-bg-pastel: 60 100% 85%;
+    --quiz-motivation-text-dark: 60 100% 15%;
+    
     --quiz-grenzen-bg: 185 72% 53%;          /* #28C8E4 */
     --quiz-grenzen-text: 0 0% 98%;
+    --quiz-grenzen-bg-pastel: 185 72% 80%;
+    --quiz-grenzen-text-dark: 185 72% 15%;
+    
     --quiz-vision-bg: 340 70% 80%;           /* Piglet pink with more red */
     --quiz-vision-text: 340 80% 20%;         /* Dark red-pink text */
     --quiz-vision-card-bg: 340 50% 95%;      /* Light piglet pink background */
+    --quiz-vision-bg-pastel: 340 50% 95%;
+    --quiz-vision-text-dark: 340 80% 20%;
+    
     --quiz-no-go-bg: 266 100% 51%;           /* #7004FF */
     --quiz-no-go-text: 0 0% 98%;
+    --quiz-no-go-bg-pastel: 266 100% 80%;
+    --quiz-no-go-text-dark: 266 100% 15%;
+    
     --quiz-risiko-bg: 241 100% 50%;          /* #0500FF */
     --quiz-risiko-text: 0 0% 98%;
+    --quiz-risiko-bg-pastel: 241 100% 80%;
+    --quiz-risiko-text-dark: 241 100% 15%;
+    
     --quiz-regeln-bg: 318 86% 75%;           /* #FF92EF */
     --quiz-regeln-text: 0 0% 0%;
+    --quiz-regeln-bg-pastel: 318 86% 90%;
+    --quiz-regeln-text-dark: 318 86% 15%;
+    
     --quiz-info-bg: 60 100% 71%;             /* #FFFE6F */
     --quiz-info-text: 0 0% 0%;
+    --quiz-info-bg-pastel: 60 100% 85%;
+    --quiz-info-text-dark: 60 100% 15%;
+    
     --quiz-reflexion-bg: 185 72% 53%;        /* #28C8E4 */
     --quiz-reflexion-text: 0 0% 98%;
+    --quiz-reflexion-bg-pastel: 185 72% 80%;
+    --quiz-reflexion-text-dark: 185 72% 15%;
+    
     --quiz-bindung-bg: 166 80% 69%;          /* #72F1C0 */
     --quiz-bindung-text: 0 0% 0%;
+    --quiz-bindung-bg-pastel: 166 80% 85%;
+    --quiz-bindung-text-dark: 166 80% 15%;
     
     /* Gradients */
     --gradient-primary: linear-gradient(135deg, hsl(280 100% 70%), hsl(290 100% 80%));
