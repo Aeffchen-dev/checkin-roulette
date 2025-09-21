@@ -348,16 +348,14 @@ export function QuizApp() {
                     left: '2px'
                   }}
                 >
-                  <span 
-                    className={`text-xs ${isMixedMode ? 'eyes-active' : 'eyes-inactive'}`} 
-                    style={{ 
-                      fontSize: '0.64rem',
-                      display: 'inline-block',
-                      transformOrigin: 'center'
-                    }}
-                  >
-                    👀
-                  </span>
+                  <div className="custom-eyes">
+                    <div className="eye">
+                      <div className={`pupil ${isMixedMode ? 'pupil-right' : 'pupil-left'}`}></div>
+                    </div>
+                    <div className="eye">
+                      <div className={`pupil ${isMixedMode ? 'pupil-right' : 'pupil-left'}`}></div>
+                    </div>
+                  </div>
                 </div>
               </div>
               <span 

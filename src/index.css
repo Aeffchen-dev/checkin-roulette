@@ -195,31 +195,30 @@ All colors MUST be HSL.
 
 /* Eyes blinking animation */
 @keyframes eyesBlink {
-  0%, 90%, 100% {
-    transform: scaleY(1);
+  0%, 95%, 100% {
+    height: 4px;
   }
-  95% {
-    transform: scaleY(0.1);
-  }
-}
-
-/* Eyes look left animation */
-@keyframes eyesLookLeft {
-  0%, 100% {
-    transform: translateX(0px);
-  }
-  50% {
-    transform: translateX(-1px);
+  97.5% {
+    height: 1px;
   }
 }
 
-/* Eyes look right animation */
-@keyframes eyesLookRight {
-  0%, 100% {
+/* Pupil movement animations */
+@keyframes pupilMoveLeft {
+  from {
     transform: translateX(0px);
   }
-  50% {
-    transform: translateX(1px);
+  to {
+    transform: translateX(-2px);
+  }
+}
+
+@keyframes pupilMoveRight {
+  from {
+    transform: translateX(0px);
+  }
+  to {
+    transform: translateX(2px);
   }
 }
 
@@ -243,13 +242,40 @@ All colors MUST be HSL.
   animation: bounce-right 0.4s ease-out;
 }
 
-/* Eyes animation classes */
-.eyes-inactive {
-  animation: eyesBlink 3s infinite, eyesLookLeft 2s infinite ease-in-out;
+/* Custom eyes styles */
+.custom-eyes {
+  display: flex;
+  gap: 2px;
+  align-items: center;
+  justify-content: center;
 }
 
-.eyes-active {
-  animation: eyesBlink 4s infinite, eyesLookRight 2.5s infinite ease-in-out;
+.eye {
+  width: 8px;
+  height: 8px;
+  background-color: white;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pupil {
+  width: 4px;
+  height: 4px;
+  background-color: black;
+  border-radius: 50%;
+  transition: transform 0.3s ease-in-out;
+  animation: eyesBlink 4s infinite;
+}
+
+.pupil-left {
+  transform: translateX(-2px);
+}
+
+.pupil-right {
+  transform: translateX(2px);
 }
 
 @layer base {
