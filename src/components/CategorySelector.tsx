@@ -34,12 +34,12 @@ export function CategorySelector({
     return 77 + (random * 6); // 77% to 83% (6% total variation)
   };
 
-  const getCategoryColors = (index: number) => {
-    const colorIndex = (index % 6) + 1;
+  const getCategoryColors = (categoryName: string) => {
+    const normalizedName = categoryName.toLowerCase();
     return {
-      stripColor: `hsl(var(--quiz-category${colorIndex}-bg))`,
-      cardBgColor: `hsl(var(--quiz-category${colorIndex}-bg-pastel))`,
-      textColor: `hsl(var(--quiz-category${colorIndex}-text-dark))`
+      stripColor: `hsl(var(--quiz-${normalizedName}-bg))`,
+      cardBgColor: `hsl(var(--quiz-${normalizedName}-bg-pastel))`,
+      textColor: `hsl(var(--quiz-${normalizedName}-text-dark))`
     };
   };
 
@@ -86,7 +86,7 @@ export function CategorySelector({
             <div className="px-4 space-y-4 pb-6">
               {categories.map((category, index) => {
               const isSelected = tempSelection.includes(category);
-              const categoryColors = getCategoryColors(index);
+              const categoryColors = getCategoryColors(category);
               const itemWidth = isSelected ? getRandomWidth(index) : 80; // Same width when inactive
               
               return (
