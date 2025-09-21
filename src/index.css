@@ -75,7 +75,7 @@ All colors MUST be HSL.
     /* Visions - Rosa mit deinen Hex-Codes */
     --quiz-visions-bg: 330 75% 87%;       /* #FAC6DA - Medium Rosa für Kategorie */
     --quiz-visions-text: 0 73% 15%;       /* Dunkler als #661111 für besseren Kontrast */
-    --quiz-visions-bg-pastel: 330 52% 95%;   /* #FCE4EC - Sehr helles Rosa für Karten-Hintergrund */
+    --quiz-visions-bg-pastel: 330 70% 92%;   /* Mehr Pink - höhere Sättigung für Karten-Hintergrund */
     --quiz-visions-text-dark: 0 73% 15%;    /* Dunkler als #661111 für Text */
     
     /* Legacy category colors - keeping for backward compatibility */
