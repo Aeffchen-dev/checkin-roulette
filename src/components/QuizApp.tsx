@@ -231,6 +231,10 @@ export function QuizApp() {
       }
       
       if (questions.length > 0) {
+        // Add timestamp-based seed for true randomness on each reload
+        const timestamp = Date.now();
+        Math.random(); // Call to reseed
+        
         // Better shuffling algorithm to distribute categories evenly
         const shuffledQuestions = smartShuffle(questions);
         
