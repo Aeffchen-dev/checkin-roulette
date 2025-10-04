@@ -306,6 +306,18 @@ export function QuizApp() {
     setQuestions(filteredQuestions);
     
     const slides: SlideItem[] = [];
+
+    // Randomize the starting question by rotating the list
+    const displayQuestions =
+      filteredQuestions.length > 1
+        ? (() => {
+            const offset = Math.floor(Math.random() * filteredQuestions.length);
+            return [
+              ...filteredQuestions.slice(offset),
+              ...filteredQuestions.slice(0, offset),
+            ];
+          })()
+        : filteredQuestions;
     
     // Add intro slide if not filtered and not in light mode and intro content exists
     if (!isFiltered && !isLightMode && introSlide) {
@@ -313,7 +325,7 @@ export function QuizApp() {
     }
     
     // Add question slides
-    filteredQuestions.forEach(q => {
+    displayQuestions.forEach(q => {
       slides.push({ type: 'question', question: q });
     });
     
