@@ -318,16 +318,21 @@ export function QuizApp() {
             ];
           })()
         : filteredQuestions;
-    
-    // Add intro slide if not filtered and not in light mode and intro content exists
-    if (!isFiltered && !isLightMode && introSlide) {
-      slides.push({ type: 'intro', question: introSlide });
+
+    // Ensure the very first visible card is a random question
+    if (!isFiltered && !isLightMode && displayQuestions.length > 0) {
+      const pool = [...displayQuestions];
+      const firstIdx = Math.floor(Math.random() * pool.length);
+      const first = pool.splice(firstIdx, 1)[0];
+      slides.push({ type: 'intro', question: first });
+      pool.forEach((q) => {
+        slides.push({ type: 'question', question: q });
+      });
+    } else {
+      displayQuestions.forEach((q) => {
+        slides.push({ type: 'question', question: q });
+      });
     }
-    
-    // Add question slides
-    displayQuestions.forEach(q => {
-      slides.push({ type: 'question', question: q });
-    });
     
     setSlides(slides);
     setCurrentIndex(0); // Reset to first slide when filtering/mode changes
